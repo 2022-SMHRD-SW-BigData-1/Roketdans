@@ -5,5 +5,7 @@ public class Test_upload {
 		System.out.println("팀 첫 번째 커밋!!");
 		
 		System.out.println("노강우-두번째 커밋");
+		System.out.println("이정민-세번째 커밋");
+		
 	}
 }
