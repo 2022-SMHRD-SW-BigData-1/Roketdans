@@ -1,0 +1,1 @@
+create table Join(aaaa number(10));
