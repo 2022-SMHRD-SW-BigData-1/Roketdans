@@ -1,4 +1,7 @@
+package view;
 import java.util.Scanner;
+
+import controller.Controller_DAO;
 
 public class View_User {
 
@@ -8,7 +11,7 @@ public class View_User {
 		Controller_DAO dao = new Controller_DAO();
 
 		while (true) {
-			System.out.println("[1]회원가입  [2]로그인>>");
+			System.out.print("[1]회원가입  [2]로그인>>");
 			int menu = sc.nextInt();
 
 			if (menu == 1) {

@@ -1,3 +1,4 @@
+package model;
 
 public class Model_VO {
 	private String id;

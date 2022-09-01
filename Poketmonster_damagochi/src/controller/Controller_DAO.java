@@ -1,3 +1,4 @@
+package controller;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -45,14 +46,14 @@ public class Controller_DAO {
 		int cnt = 0;
 		try {
 			getCon();
-			String sql = "insert into memberInfo values(?,?,?)";
+			String sql = "insert into join values(?,?,?,'')";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
 			psmt.setString(3, nick);
 			
 			cnt = psmt.executeUpdate();
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -65,7 +66,7 @@ public class Controller_DAO {
 	public boolean login(String id, String pw) {
 		try {
 			getCon();
-			String sql = "select * from memberInfo where id = ? and pw=?";
+			String sql = "select * from join where id = ? and pw=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setString(2, pw);
@@ -85,5 +86,35 @@ public class Controller_DAO {
 		}
 		return false;
 	}
+	
+	//가입날짜가 현재날짜일 경우 신규가입으로 => true 반환 신규가입이 아닐시 false
+	public boolean check_user(String id) {
+		
+		return false;
+	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
