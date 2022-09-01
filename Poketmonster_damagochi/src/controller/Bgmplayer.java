@@ -21,6 +21,7 @@ public class Bgmplayer {
 		bgmlist.add(new Bgm("타격", "C://Users/smhrd/Desktop/Bgm/타격.mp3"));
 		bgmlist.add(new Bgm("이상해씨", "C://Users/smhrd/Desktop/Bgm/이상해씨.mp3"));
 		bgmlist.add(new Bgm("꼬부기", "C://Users/smhrd/Desktop/Bgm/꼬부기.mp3"));
+		bgmlist.add(new Bgm("파이리", "C://Users/smhrd/Desktop/Bgm/파이리.mp3"));
 		bgmlist.add(new Bgm("엔딩", "C://Users/smhrd/Desktop/Bgm/엔딩노래.mp3"));
 	}
 	public void play(String s) {
