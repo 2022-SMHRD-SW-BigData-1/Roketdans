@@ -17,7 +17,7 @@ type varchar2(20),
 id varchar2(20),
 constraint Poke_name_pk primary key(poke_name,id),
 constraint Poke_type_ck check(type in ('물타입','불타입','풀타입')),
-constraint Poke_id_fk foregin key (id) references join(id));
+constraint Poke_id_fk foreign key (id) references join(id));
 
 insert into join values('test','testing','tester','');
 
