@@ -10,7 +10,9 @@ public class User_Pokemon extends Pokemons{
 	// 회원가입 할 경우 레벨 1로	
 	public User_Pokemon(String user_id) {
 		Random rd = new Random();
+		level = 1;
 		hp = level * 10 + (rd.nextInt(5)+1);
+		exp = 0;
 	}
 	
 	// 로그인 했을 경우
