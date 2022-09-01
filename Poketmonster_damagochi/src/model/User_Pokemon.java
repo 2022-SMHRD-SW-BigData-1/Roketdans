@@ -14,7 +14,7 @@ public class User_Pokemon extends Pokemons{
 	}
 	
 	// 로그인 했을 경우
-	public User_Pokemon() {
+	public User_Pokemon(String user_id, String pw) {
 		
 	}
 	

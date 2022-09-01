@@ -17,7 +17,7 @@ type varchar2(20),
 constraint Poke_name_pk primary key(poke_name),
 constraint Poke_type check(type in ('물타입','불타입','풀타입')));
 
-insert into join values('test','testing','tester');
+insert into join values('test','testing','tester','');
 
 drop table poke;
 select * from poke;
