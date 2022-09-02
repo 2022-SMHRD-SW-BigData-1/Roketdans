@@ -53,4 +53,13 @@ public class User_Pokemon extends Pokemons{
 			}
 		}
 	}
+	
+	//진화
+	
+	//상태창 확인
+	
+	// 스킬
+	
+	
+	
 }
