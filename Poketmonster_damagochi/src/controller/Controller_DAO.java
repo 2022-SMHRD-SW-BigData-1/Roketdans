@@ -92,23 +92,23 @@ public class Controller_DAO {
 	}
 	
 	// 포켓몬 정보 저장le, i
-	public void save(int id, int now_hp, int now_levnt now_exp) {
-		try {
-			getCon();
-			String sql = "update poke set (hp,level,exp)=(?,?,?) where id = ? ";
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, now_exp);
-			psmt.setInt(2, now_levle);
-			psmt.setInt(3, now_exp);
-			psmt.setInt(4, id);
-			
-			int result = psmt.executeUpdate();
-			if(!(result>0)) {
-				System.out.println("삽입 실패");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public void save(int id, int now_hp, int now_levnt) {
+//		try {
+//			getCon();
+//			String sql = "update poke set (hp,level,exp)=(?,?,?) where id = ? ";
+//			psmt = conn.prepareStatement(sql);
+//			psmt.setInt(1, now_exp);
+//			psmt.setInt(2, now_levle);
+//			psmt.setInt(3, now_exp);
+//			psmt.setInt(4, id);
+//			
+//			int result = psmt.executeUpdate();
+//			if(!(result>0)) {
+//				System.out.println("삽입 실패");
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		
 	}
 	
@@ -119,27 +119,4 @@ public class Controller_DAO {
 //	public int[] return_pokemon(String user_id, String user_pw) {
 		
 //	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

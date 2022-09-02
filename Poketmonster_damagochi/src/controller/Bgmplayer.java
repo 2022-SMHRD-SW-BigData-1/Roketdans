@@ -7,7 +7,7 @@ import model.Bgm;
 
 public class Bgmplayer {
 	ArrayList<Bgm> bgmlist =new ArrayList<Bgm>();
-//	MP3Player mp3 = new MP3Player();
+	MP3Player mp3 = new MP3Player();
 	
 	public Bgmplayer() {
 		bgmlist.add(new Bgm("포켓몬발견","C://Users/smhrd/Desktop/Bgm/야생포켓몬발견.mp3"));
