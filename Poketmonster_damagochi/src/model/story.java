@@ -165,7 +165,7 @@ public class story {
 			pause();pause();
 			System.out.print("나 : 너무 재밌었습니다! 로켓단만 만나지 않았다면 말이죠");
 			pause();pause();
-			System.out.print("뭐? 로켓단을 만났다고 그 악랄한 놈들");
+			System.out.print("오박사 : 뭐? 로켓단을 만났다고 그 악랄한 놈들");
 			pause();pause();
 			System.out.print("그래도 뱃지를 뺏기지 않아서 정말 다행이군!");
 			System.out.println();
@@ -174,7 +174,7 @@ public class story {
 			pause();pause();
 			System.out.print("나 : 아직 결정하지 못했어요..");
 			pause();pause();
-			System.out.print("다른 포켓몬과 다시 여행을 떠나는건 어떤가?");
+			System.out.print("오박사 : 다른 포켓몬과 다시 여행을 떠나는건 어떤가?");
 			pause();pause();
 			System.out.print("재시작 하시겠습니까? (Y/N)");
 			pause();pause();
@@ -188,7 +188,7 @@ public class story {
 				System.out.print("게임을 종료합니다.");
 				break;
 			}else {
-				System.out.print("잘못 입력하셨습니다.");
+				System.out.println("잘못 입력하셨습니다.");
 			}
 		}
 		}
