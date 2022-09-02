@@ -34,7 +34,10 @@ public abstract class Pokemons {
 	int basic_attack = level*2;
 	int skill_attack = basic_attack * 2 + (rd.nextInt(10)+1);
 	//포켓몬 이름
-	String[] pokemons_names = {"꼬부기", "파이리","이상해씨","개구마르","물짱이","야돈","포니타","브케인","불꽃송이","치코리타","나무지기","모부기"};
+	String[] pokemons_names = {"꼬부기", "파이리","이상해씨","개구마르","물짱이","야돈","포니타","브케인","불꽃숭이","치코리타","나무지기","모부기"};
+	String[] pokemons_skill_1 = {"하이드로펌프","불꽃세례","덩굴채찍","막치기","물대포","사슬묶기","화염자동차","화염방사","회오리불꽃","메지컬리프","메가드레인","앞날가르기"};
+	String[] pokemons_evolution1 = {"어니부기","리자드","이상해풀","개굴반장","늪짱이","야도란","날쌩마","마그케인","파이숭이","베이리프","나무돌이","수풀부기"};
+	String[] pokemons_evolution2 = {"거북왕","리자몽","이상해꽃","개굴닌자","대짱이","메가야도란","날쌩마","블레이범","초염뭉","메가니움","나무킹","토대부기"};
 	String[] grass_type = {"이상해씨","치코리타","나무지기","모부기"};
 	String[] water_type = {"꼬부기","개구마르","물짱이","야돈"};
 	String[] fire_type = {"파이리","포니타","브케인","불꽃송이"};
@@ -181,30 +184,7 @@ public abstract class Pokemons {
 			}
 		}
 		
-		// 레벨 업 확인 메소드
-		public void check_Level_Up(User_Pokemon userPokemon) {
-			if(userPokemon.getExp() == userPokemon.getMax_exp()) {
-				userPokemon.level++;
-			}
-		}
-		// 진화 확인 메소드
-		public void check_evolution(User_Pokemon userPokemon) {
-			if(userPokemon.level == 5) {
-				evolution =1;
-			}
-			if(userPokemon.level == 10) {
-				evolution =2;
-			}
-		}
 		
-		// 같은 포켓몬 이름 확인
-		public void find_pokemon_name(User_Pokemon userPokemon) {
-			for (int i = 0; i < pokemons_names.length; i++) {
-				if(pokemons_names[i] == userPokemon.getPokemon_name()) {
-					userPokemon.getPokemon_name() = pokemons_evolution_1[i];
-				}
-			}
-		}
 			
 		
 	
