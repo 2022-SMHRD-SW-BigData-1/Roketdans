@@ -30,6 +30,9 @@ public abstract class Pokemons {
 	//1,2 차 진화
 	int evolution;
 	
+	// 사용자가 선택한 포켓몬 넘버
+	int select_number;
+	
 	// 레벨 비례 기본 공격력, 스킬 공격력
 	int basic_attack = level*2;
 	int skill_attack = basic_attack * 2 + (rd.nextInt(10)+1);
