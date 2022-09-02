@@ -57,18 +57,22 @@ public class story {
 			System.out.println();
 			System.out.print("포켓몬 마스터가 되기 위한 여정을 떠나겠느냐? (Y/N)");
 			pause();pause();
+			while(true) {
 			System.out.print("입력해주세요 : ");
 			String click = sc.next();
-			System.out.println();
-			
 			if (click.equals("y")) {
 				System.out.print("포켓몬 세계에 입장합니다!");
+				break;
 			}else if(click.equals("n")){
-				System.out.print("거절은 거절하겠네");
+				System.out.println("거절은 거절하겠네");
+				System.out.print("포켓몬 세계에 입장합니다!");
+				break;
 			}else {
-				System.out.print("잘못 입력하셨습니다.");
+				System.out.println("잘못 입력하셨습니다.");
 			}
-		System.out.println();
+		}
+			System.out.println();
+			System.out.println();
 		}
 		
 		// 포켓몬 선택 멘트
@@ -85,20 +89,25 @@ public class story {
 		System.out.print("내가 여기 3마리의 포켓몬을 준비했으니 골라보게!!");
 		pause();pause();
 		System.out.println("[1].꼬부기   [2].파이리   [3].이상해씨");
-		System.out.print("포켓몬을 선택하세요 : ");
-		int choice = sc.nextInt();
-		
+		while(true) {
+			System.out.print("포켓몬을 선택하세요 : ");
+			int choice = sc.nextInt();
 			if(choice == 1) {
 				 System.out.println("꼬부기 : 꼬북 꼬북");
+				 break;
 		}else if(choice == 2) {
 				  System.out.println("파이리 : 푸와오왘");
+				  break;
 		}else if(choice == 3) {
 				  System.out.println("이상해씨 : 이상! 이상!");
+				  break;
 		}else{
 			System.out.println("다시 입력해주세요");
 			}  
-			   System.out.println("오박사 : 좋은 포켓몬을 선택했군! 그럼 바로 모험을 떠나게!");
-			   pause();pause();
+		}
+		System.out.println();
+		System.out.println("오박사 : 좋은 포켓몬을 선택했군! 그럼 바로 모험을 떠나게!");
+		pause();pause();
 		}
 		// 첫번째 체육관 도전 멘트
 		
@@ -120,6 +129,7 @@ public class story {
 			System.out.print("나 : 뭐야? 뱃지가 사라졌어...");
 			pause();pause();
 			System.out.print("뱃지도둑이 훔쳐 간거 같아 ㅠㅠ");
+			System.out.println();
 			pause();pause();
 			System.out.print("뱃지 도둑이라고 말하신다면");
 			pause();pause();
@@ -137,8 +147,9 @@ public class story {
 			pause();pause();
 			System.out.print("나는 민진!");
 			pause();pause();
-			System.out.print("나는 냐옹이다옹~");
+			System.out.print("나는 냐옹 이다옹~");
 			pause();pause();
+			System.out.println();
 		}
 		
 		public static void ending(){
@@ -150,12 +161,14 @@ public class story {
 			System.out.print("정말 축하하네!!!");
 			pause();pause();
 			System.out.print("힘들일은 없었나?");
+			System.out.println();
 			pause();pause();
 			System.out.print("나 : 너무 재밌었습니다! 로켓단만 만나지 않았다면 말이죠");
 			pause();pause();
 			System.out.print("뭐? 로켓단을 만났다고 그 악랄한 놈들");
 			pause();pause();
 			System.out.print("그래도 뱃지를 뺏기지 않아서 정말 다행이군!");
+			System.out.println();
 			pause();pause();
 			System.out.print("그래 이제 뭘 하고 싶은가?");
 			pause();pause();
@@ -164,14 +177,20 @@ public class story {
 			System.out.print("다른 포켓몬과 다시 여행을 떠나는건 어떤가?");
 			pause();pause();
 			System.out.print("재시작 하시겠습니까? (Y/N)");
+			pause();pause();
+			while(true) {
+				System.out.print("입력해주세요 : ");
 			String retry = sc.next();
 			if (retry.equals("y")) {
 				System.out.print("처음부터 다시 시작합니다.");
+				break;
 			}else if(retry.equals("n")) {
 				System.out.print("게임을 종료합니다.");
+				break;
 			}else {
 				System.out.print("잘못 입력하셨습니다.");
 			}
+		}
 		}
 		
 	}
