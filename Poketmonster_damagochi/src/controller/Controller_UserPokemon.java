@@ -14,9 +14,19 @@ public class Controller_UserPokemon {
 		}
 	}
 	
-	
+	// 진화 조건 확인 후 해당 포켓몬 진화 포켓몬 이름으로 변경하는 메소드
+	public void check_evolution() {
+		if(userPokemon.getLevel() == 5) {
+			userPokemon.setPokemon_name(userPokemon.getPokemons_evolution1()[userPokemon.getSelect_number()]);
+			userPokemon.setEvolution(2);
+			}
+		if(userPokemon.getLevel() == 10) {
+			userPokemon.setPokemon_name(userPokemon.getPokemons_evolution2()[userPokemon.getSelect_number()]);
+			userPokemon.setEvolution(3);
+		}
 	
 	}
+}
 	
 
 
