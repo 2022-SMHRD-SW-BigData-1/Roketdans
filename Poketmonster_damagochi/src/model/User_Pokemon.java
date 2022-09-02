@@ -7,7 +7,7 @@ import view.View_User;
 
 public class User_Pokemon extends Pokemons{
 	Random rd = new Random();
-	
+	User_VO userVO = new User_VO();
 	// 포켓몬 테이블에 정보가 null이라면 레벨 1
 	// 있다면 포켓몬 정보 끌어 초기화
 	// 유저 id를 받아 초기화
@@ -32,42 +32,11 @@ public class User_Pokemon extends Pokemons{
 		
 	}
 
-			//레벨업 메소드		
-			public void check_Level_Up(User_Pokemon userPokemon) {
-				if(userPokemon.getExp() == userPokemon.getMax_exp()) {
-					userPokemon.level++;
-				}
-			}
-			// 진화 확인 메소드
-			public void check_evolution(User_Pokemon userPokemon) {
-				if(userPokemon.level == 5) {
-					evolution =1;
-				}
-				if(userPokemon.level == 10) {
-					evolution =2;
-				}
-			}
 			
-			// 같은 포켓몬 이름 확인
-			public void find_pokemon_name(User_Pokemon userPokemon) {
-				for (int i = 0; i < pokemons_names.length; i++) {
-					if(pokemons_names[i] == userPokemon.getPokemon_name()) {
-//						userPokemon.getPokemon_name() = pokemons_evolution_1[i];
-					}
-				}
-			}
 			
 		
 		
 		
-	
-	
-	//진화
-	
-	//상태창 확인
-	
-	// 스킬
-	
 	
 	
 }

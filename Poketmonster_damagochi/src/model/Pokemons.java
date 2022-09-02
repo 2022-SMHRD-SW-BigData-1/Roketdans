@@ -33,14 +33,44 @@ public abstract class Pokemons {
 	// 레벨 비례 기본 공격력, 스킬 공격력
 	int basic_attack = level*2;
 	int skill_attack = basic_attack * 2 + (rd.nextInt(10)+1);
-	//포켓몬 이름
+	// 진화에 따른 포켓몬 이름
 	String[] pokemons_names = {"꼬부기", "파이리","이상해씨","개구마르","물짱이","야돈","포니타","브케인","불꽃숭이","치코리타","나무지기","모부기"};
-	String[] pokemons_skill_1 = {"하이드로펌프","불꽃세례","덩굴채찍","막치기","물대포","사슬묶기","화염자동차","화염방사","회오리불꽃","메지컬리프","메가드레인","앞날가르기"};
 	String[] pokemons_evolution1 = {"어니부기","리자드","이상해풀","개굴반장","늪짱이","야도란","날쌩마","마그케인","파이숭이","베이리프","나무돌이","수풀부기"};
-	String[] pokemons_evolution2 = {"거북왕","리자몽","이상해꽃","개굴닌자","대짱이","메가야도란","날쌩마","블레이범","초염뭉","메가니움","나무킹","토대부기"};
+	String[] pokemons_evolution2 = {"거북왕","리자몽","이상해꽃","개굴닌자","대짱이","메가야도란","날쌩마","블레이범","초염몽","메가니움","나무킹","토대부기"};
+	// 진화에 따른 스킬
+	String[] pokemons_skill_1 = {"로케트박치기","플레어드라이브","씨폭탄","물의파동","머드숏","파도타기","불대문자","분연","플레어드라이브","누르기","힘껏치기","기가드레인"};
+	String[] pokemons_skill_2 = {"물의파동","드래콘크루","꽃잎댄스","속여때리기","죽기살기","사념의박치기","니트로차지","이판사판태클","플레어드라이브","자연의은혜","힘껏치기","리프스툼"};
+	String[] pokemons_skill_3 = {"하이드로펌프","불꽃세례","덩굴채찍","막치기","물대포","사슬묶기","화염자동차","화염방사","회오리불꽃","메지컬리프","메가드레인","앞날가르기"};
+	
+	// 타입
 	String[] grass_type = {"이상해씨","치코리타","나무지기","모부기"};
 	String[] water_type = {"꼬부기","개구마르","물짱이","야돈"};
 	String[] fire_type = {"파이리","포니타","브케인","불꽃송이"};
+	
+	public int getSkill_attack() {
+		return skill_attack;
+	}
+
+	public String[] getPokemons_evolution1() {
+		return pokemons_evolution1;
+	}
+
+	public String[] getPokemons_evolution2() {
+		return pokemons_evolution2;
+	}
+
+	public String[] getPokemons_skill_1() {
+		return pokemons_skill_1;
+	}
+
+	public String[] getPokemons_skill_2() {
+		return pokemons_skill_2;
+	}
+
+	public String[] getPokemons_skill_3() {
+		return pokemons_skill_3;
+	}
+
 	
 	public Random getRd() {
 		return rd;
