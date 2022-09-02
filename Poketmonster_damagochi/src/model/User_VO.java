@@ -1,15 +1,21 @@
 package model;
 
-public class Model_VO {
+public class User_VO {
 	private String id;
 	private String pw;
 	private String nick;
 	
-	public Model_VO(String id, String pw, String nick) {
+	public User_VO(String id, String pw, String nick) {
 		this.id=id;
 		this.pw=pw;
 		this.nick=nick;
 	}
+	
+	public User_VO(String id, String pw) {
+		this.id = id;
+		this.pw = pw;
+	}
+	
 	
 	public void setId(String id) {
 		this.id = id;
