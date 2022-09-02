@@ -91,15 +91,34 @@ public class Controller_DAO {
 		return false;
 	}
 	
-	//가입날짜가 현재날짜일 경우 신규가입으로 => true 반환 신규가입이 아닐시 false
-//	public boolean check_user(String id) {
-//		getCon();
-//		String sql = "select id from join where id = id and join_date = sysdate";
-//		
-//		return false;
-//	}
-
+	// 포켓몬 정보 저장le, i
+	public void save(int id, int now_hp, int now_levnt now_exp) {
+		try {
+			getCon();
+			String sql = "update poke set (hp,level,exp)=(?,?,?) where id = ? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, now_exp);
+			psmt.setInt(2, now_levle);
+			psmt.setInt(3, now_exp);
+			psmt.setInt(4, id);
+			
+			int result = psmt.executeUpdate();
+			if(!(result>0)) {
+				System.out.println("삽입 실패");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
+
+	// 로그인 시 포켓몬 정보 꺼내기
+	// 유저 아이디 비밀번호를 받아 
+	//poke라는 테이블에서 아이디와 비밀번호가 일치 
+//	public int[] return_pokemon(String user_id, String user_pw) {
+		
+//	}
 	
 	
 	
