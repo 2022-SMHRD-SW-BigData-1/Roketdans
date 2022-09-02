@@ -112,6 +112,9 @@ public class View_User {
 		} else if (move == 3) {
 			System.out.println();
 			System.out.print("상태창을 출력합니다.");
+			System.out.print("level: "+userPokemon.getLevel()+" ");
+			System.out.print("hp: "+userPokemon.getHp()+" ");
+			System.out.print("exp: "+userPokemon.getExp()+" ");
 		} else if (move == 4) {
 			System.out.println();
 			System.out.print("치료센터로 이동합니다.");

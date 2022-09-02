@@ -32,8 +32,31 @@ public class User_Pokemon extends Pokemons{
 		
 	}
 
+			//레벨업 메소드		
+			public void check_Level_Up(User_Pokemon userPokemon) {
+				if(userPokemon.getExp() == userPokemon.getMax_exp()) {
+					userPokemon.level++;
+				}
+			}
+			// 진화 확인 메소드
+			public void check_evolution(User_Pokemon userPokemon) {
+				if(userPokemon.level == 5) {
+					evolution =1;
+				}
+				if(userPokemon.level == 10) {
+					evolution =2;
+				}
+			}
 			
-	
+			// 같은 포켓몬 이름 확인
+			public void find_pokemon_name(User_Pokemon userPokemon) {
+				for (int i = 0; i < pokemons_names.length; i++) {
+					if(pokemons_names[i] == userPokemon.getPokemon_name()) {
+//						userPokemon.getPokemon_name() = pokemons_evolution_1[i];
+					}
+				}
+			}
+			
 		
 		
 		
