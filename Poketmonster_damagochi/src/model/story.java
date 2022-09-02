@@ -78,10 +78,11 @@ public class story {
 		
 		// 포켓몬 선택 멘트
 		
-		public static void choose(){
+		public static int choose(){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("=========== 포켓몬 선택 ===========");
 		System.out.println();
+		int choice;
 		String[] chooseText = {"오박사 : 포켓몬 마스터가 되기 위해서는","파트너 포켓몬을 선택해야 한다!","\t","모험을 시작하려면 함께 할 포켓몬이 있어야하지 않겠나?","내가 여기 3마리의 포켓몬을 준비했으니 골라보게!!","\t"};
 		for(int i = 0; i<chooseText.length; i++) {
 			slowPrint(chooseText[i]+"\n", 10);
@@ -90,7 +91,7 @@ public class story {
 		System.out.println();
 		while(true) {
 			System.out.print("포켓몬을 선택하세요 : ");
-			int choice = sc.nextInt();
+			choice = sc.nextInt();
 			if(choice == 1) {
 				slowPrint("꼬부기 : 꼬북! 꼬북!",10);
 				// 이미지 삽입
@@ -114,6 +115,7 @@ public class story {
 		slowPrint("태초마을에 오신걸 환영합니다!!!",10);
 		System.out.println();
 		System.out.println();
+		return choice;
 		}
 		
 		// 사냥터

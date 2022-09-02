@@ -5,6 +5,7 @@ import java.util.Scanner;
 import controller.Controller_DAO;
 import model.User_Pokemon;
 import model.User_VO;
+import model.Wild_pokemon;
 import model.story;
 
 public class View_User {
@@ -17,8 +18,9 @@ public class View_User {
 		// 유저 가입, 로그인에 따른 포켓몬 생성
 		User_Pokemon userPokemon = null;
 		// 유저 가입, 로그인에 따른 정보 초기화 차이
-		User_VO userVO = null;
 		story s = new story();
+		User_VO userVO = null;
+		Wild_pokemon wildPokemon = null;
 
 		// 메인 타이틀
 		s.title();
@@ -31,6 +33,7 @@ public class View_User {
 			System.out.println();
 
 			if (menu == 1) {
+				int choose;
 				s.opening();
 				System.out.println("==========등록==========");
 				System.out.println();
@@ -46,14 +49,14 @@ public class View_User {
 					System.out.println("등록 성공");
 					System.out.println("=======================");
 					System.out.println();
-					s.choose();
+					choose = s.choose();
 				} else {
 					System.out.println("등록 실패");
 					System.out.println("=======================");
 					System.out.println();
 				}
 				System.out.println();
-				userPokemon = new User_Pokemon();
+//				userPokemon = new User_Pokemon(choose);
 				userVO = new User_VO(id, pw, nick);
 				break;
 
@@ -85,6 +88,8 @@ public class View_User {
 			System.out.print("사냥터로 이동합니다.");
 			System.out.println();
 			s.field();
+//			 야생 포켓몬 출현
+			wildPokemon = new Wild_pokemon();
 		} else if (move == 2) {
 			while (true) {
 				System.out.println();
