@@ -25,10 +25,11 @@ public abstract class Pokemons {
 	String pokemon_name;
 	//포켓몬 스킬
 	String pokemon_skill_name;
+	//포켓몬 타입
 	String pokemon_type;
 	
 	//1,2 차 진화
-	int evolution;
+	int evolution; // => 기본 값 : 1       1차 진화 값 : 2         2차 진화 값 :  3
 	
 	// 사용자가 선택한 포켓몬 넘버
 	int select_number;

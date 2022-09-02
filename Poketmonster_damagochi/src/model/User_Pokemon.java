@@ -16,7 +16,7 @@ public class User_Pokemon extends Pokemons{
 	public  User_Pokemon(int select_num) {
 		//포켓몬이 선택한 숫자를 초기화
 		this.select_number = select_num;
-		
+		this.evolution = 1;
 		level = 1;
 		hp = level *10 + (rd.nextInt(10)+1);
 		exp = 0;
