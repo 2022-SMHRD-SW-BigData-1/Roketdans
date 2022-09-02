@@ -14,10 +14,10 @@ public class Controller_UserPokemon {
 		}
 	}
 	
-	// 진화 확인 메소드
+	//진화 확인 메소드
 //	public void check_evolution() {
 //		if(userPokemon.getLevel() == 5) {
-//				
+//				evolution=1;
 //			}
 //		}else if(level == 10) {
 //			evolution =2;
