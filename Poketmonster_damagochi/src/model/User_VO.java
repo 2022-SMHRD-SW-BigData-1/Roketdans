@@ -15,6 +15,9 @@ public class User_VO {
 		this.id = id;
 		this.pw = pw;
 	}
+	public User_VO() {
+		
+	}
 	
 	
 	public void setId(String id) {

@@ -36,6 +36,24 @@ public abstract class Pokemons {
 	String[] water_type = {"꼬부기","개구마르","물짱이","야돈"};
 	String[] fire_type = {"파이리","포니타","브케인","불꽃송이"};
 	
+	// 타입 확인
+		public void check_type() {
+			for (int i = 0; i < fire_type.length; i++) {
+				if(fire_type[i].equals(pokemon_name)) {
+					pokemon_type = fire_type[i];
+				}
+			}
+			for (int i = 0; i < water_type.length; i++) {
+				if(water_type[i].equals(pokemon_name)) {
+					pokemon_type = water_type[i];
+				}
+			}
+			for (int i = 0; i < grass_type.length; i++) {
+				if(grass_type[i].equals(pokemon_name)) {
+					pokemon_type = grass_type[i];
+				}
+			}
+		}
 	
 	public int getLevel() {
 		return level;
