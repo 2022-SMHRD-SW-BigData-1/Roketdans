@@ -39,7 +39,10 @@ public class View_User {
 				} else {
 					System.out.println("등록 실패");
 				}
-				userPokemon = new User_Pokemon(id);
+				// 유저 포켓몬 선택  흐름 int check_num == 선택 번호
+				
+				
+				userPokemon = new User_Pokemon();
 				userVO = new User_VO(id, pw, nick);
 				break;
 			} else if (menu == 2) {
