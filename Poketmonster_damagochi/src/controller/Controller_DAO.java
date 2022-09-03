@@ -5,7 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Pokemons;
+import model.User_Pokemon;
+
 public class Controller_DAO {
+	// 저장할 포켓몬 객체 선언
+	User_Pokemon up = new User_Pokemon();
+	Pokemons[] update_pk = up.getPokemonsArray();
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
@@ -91,24 +97,24 @@ public class Controller_DAO {
 		return false;
 	}
 	
-	// 포켓몬 정보 저장le, i
+	// 포켓몬 정보 저장
 	public void save(int id, int now_hp, int now_levnt) {
-//		try {
-//			getCon();
-//			String sql = "update poke set (hp,level,exp)=(?,?,?) where id = ? ";
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setInt(1, now_exp);
-//			psmt.setInt(2, now_levle);
-//			psmt.setInt(3, now_exp);
-//			psmt.setInt(4, id);
-//			
-//			int result = psmt.executeUpdate();
-//			if(!(result>0)) {
-//				System.out.println("삽입 실패");
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			getCon();
+			String sql = "update poke set (id,nick,skill_name,level_,max_hp,hp,exp)=(?,?,?,?,?,?,?) where id = ? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, now_exp);
+			psmt.setInt(2, now_levle);
+			psmt.setInt(3, now_exp);
+			psmt.setInt(4, id);
+			
+			int result = psmt.executeUpdate();
+			if(!(result>0)) {
+				System.out.println("삽입 실패");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	

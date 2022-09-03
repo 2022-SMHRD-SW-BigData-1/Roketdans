@@ -37,7 +37,7 @@ public class User_Pokemon {
 	Pokemons wild_beilipeu = new Pokemons("베이리프", "자연의은혜","풀", "rd");
 	Pokemons wild_namudori = new Pokemons("나무돌이", "힘껏치기", "풀","rd");
 	Pokemons wild_supulbugi = new Pokemons("수풀부기", "리프스톰","풀", "rd");
-	Pokemons update_pokemon = new Pokemons("", "","","");
+	Pokemons update_pokemon = new Pokemons("null", "null","null","rd");
 
 	Pokemons[] pokemonsArray = {ggobugi,pairi,isanghassi,wild_ggobugi,wild_pairi,wild_isanghassi,wild_gagumar,
 			wild_muljjangi,wild_yadon,wild_ponita,wild_bkein,wild_buggochsugi,wild_chikorita,wild_namujigi,
