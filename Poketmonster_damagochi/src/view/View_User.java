@@ -46,8 +46,8 @@ public class View_User {
 //				포켓몬 선택 스토리
 					choose = s.choose();
 					// 선택한 포켓몬 번호를 포켓몬 배열 마지막에 저장
-					first_pokemon[first_pokemon.length -1] = first_pokemon[choose-1];
-//				
+					//				
+					battle.arrinsert(choose);
 				} else {
 					System.out.println("등록 실패");
 					System.out.println("=======================");

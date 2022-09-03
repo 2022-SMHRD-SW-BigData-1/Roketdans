@@ -1,16 +1,20 @@
 package controller;
+
 import java.util.Random;
 import java.util.Scanner;
 import model.Pokemons;
 import model.User_Pokemon;
+
 public class Battle {
 	Scanner sc = new Scanner(System.in);
 	Random rd = new Random();
 	image im = new image();
 	User_Pokemon upo = new User_Pokemon();
 	Pokemons[] arrpo = upo.getPokemonsArray();
+
 	public Battle(Pokemons[] first_pokemon) {
 	}
+
 	public void vs() {
 		System.out.print("[1]싸운다  [2]도망간다");
 		int menu = sc.nextInt();
@@ -169,13 +173,15 @@ public class Battle {
 					}
 					break; // 야생포켓몬 턴 종료
 				} //
-				
+
 			}
 		}
 	}
+
 	public void skillname(int a) {
 		System.out.println(arrpo[a].getPokemonSkillName() + "!!!");
 	}
+
 	public void win(int hp) {
 		int exp = arrpo[arrpo.length - 1].getExp();
 		int level = arrpo[arrpo.length - 1].getLevel();
@@ -185,20 +191,30 @@ public class Battle {
 		}
 		arrpo[arrpo.length - 1].setHp(hp);
 	}
+
 	public void lose() {
 		arrpo[arrpo.length - 1].setExp(0);
 		arrpo[arrpo.length - 1].setHp(0);
 	}
+
 	public void status() {
-		String na = arrpo[arrpo.length-1].getPokemon_Nmae();
+		String na = arrpo[arrpo.length - 1].getPokemon_Nmae();
 		im.show(na);
 		System.out.println("포켓몬 이름 : " + arrpo[arrpo.length - 1].getPokemon_Nmae());
 		System.out.println("타입 : " + arrpo[arrpo.length - 1].getPokemon_type());
 		System.out.println("스킬명 : " + arrpo[arrpo.length - 1].getPokemonSkillName());
-		System.out.println("LEVEL : "+arrpo[arrpo.length - 1].getLevel());
-		System.out.println("최대 체력 : "+arrpo[arrpo.length - 1].getMax_hp());
-		System.out.println("현재 체력 : "+arrpo[arrpo.length - 1].getHp());
-		System.out.println("EXP : "+arrpo[arrpo.length - 1].getExp());
+		System.out.println("LEVEL : " + arrpo[arrpo.length - 1].getLevel());
+		System.out.println("최대 체력 : " + arrpo[arrpo.length - 1].getMax_hp());
+		System.out.println("현재 체력 : " + arrpo[arrpo.length - 1].getHp());
+		System.out.println("EXP : " + arrpo[arrpo.length - 1].getExp());
 	}
-	
+
+	public void arrinsert(int s) {
+		s -= 1;
+		String name = arrpo[s].getPokemon_Nmae();
+		String skillname = arrpo[s].getPokemonSkillName();
+		arrpo[arrpo.length - 1].setPokemon_Nmae(name);
+		arrpo[arrpo.length - 1].setPokemonSkillName(skillname);
+
+	}
 }
