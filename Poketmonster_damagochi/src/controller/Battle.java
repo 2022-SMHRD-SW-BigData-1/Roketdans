@@ -22,6 +22,7 @@ public class Battle {
 			String name1 = arrpo[arrpo.length - 1].getPokemon_Nmae(); // 유저 포켓몬 정보
 			int skill11 = arrpo[arrpo.length - 1].getBasic_attack();
 			int skill12 = arrpo[arrpo.length - 1].getSkill_attack();
+			String skillname1 = arrpo[arrpo.length - 1].getPokemonSkillName();
 			int hp1 = arrpo[arrpo.length - 1].getHp();
 			int ran = 0;
 			while (true) {
@@ -41,14 +42,14 @@ public class Battle {
 			String name2 = arrpo[ran].getPokemon_Nmae(); // 야생 포켓몬
 			int skill21 = arrpo[ran].getBasic_attack(); // 야생 포켓몬 기본데미지
 			int skill22 = arrpo[ran].getSkill_attack(); // 야생 포켓몬 스킬데미지
+			int level2 = arrpo[ran].getMax_level(); // 야생 포켓몬 레벨
+			String skillname2 = arrpo[ran].getPokemonSkillName();
 			int hp2 = arrpo[ran].getHp();
-			// 포켓몬 1 이미지
-			// vs 이미지
-			// 포켓몬 2 이미지
-			// (랜덤 포켓몬)
-			im.show(name1);
+
+			im.show(name1); // 이미지
 			im.show("vs");
 			im.show(name2);
+			System.out.println(name2+"의 LEVEL : "+level2);
 			String temptype1 = arrpo[arrpo.length - 1].getPokemon_type();
 			String temptype2 = arrpo[ran].getPokemon_type();
 			if (temptype1.equals("물")) {
@@ -109,12 +110,15 @@ public class Battle {
 			int count2 = 0; // 포켓몬 2의 두번째 스킬 제한
 			while (true) {
 				// 포켓몬 2 hp - ( 그 포켓몬의 스킬 데미지 ) 불 물 풀
-				System.out.print("[1]몸통 박치기  [2]???포켓몬 스킬 [3]도망간다");
+				System.out.print("[1]몸통 박치기  [2]" + name1 + "  [3]도망간다");
 				int menu1 = sc.nextInt();
 				if (menu1 == 1) {
 					hp2 -= skill11;
+					System.out.println("========================");
+					System.out.println(name1 + "몸통 박치기 !!!!");
 					System.out.println(name1 + "의피 : " + hp1);
 					System.out.println(name2 + "의피 : " + hp2);
+					System.out.println("========================");
 					if (hp2 < 0) {
 						im.show("승리");
 						win(hp1);
@@ -128,9 +132,11 @@ public class Battle {
 						continue;
 					}
 					hp2 -= skill12;
-					skillname(arrpo.length - 1);
+					System.out.println("========================");
+					System.out.println(name1 + "!!  " + skillname1 + "!!");
 					System.out.println(name1 + "의피 : " + hp1);
 					System.out.println(name2 + "의피 : " + hp2);
+					System.out.println("========================");
 					if (hp2 < 0) {
 						im.show("승리");
 						win(hp1);
@@ -146,8 +152,11 @@ public class Battle {
 					menu1 = rd.nextInt(2) + 1;
 					if (menu1 == 1) {
 						hp1 -= skill21;
+						System.out.println("========================");
+						System.out.println(name2 + " 몸통 박치기");
 						System.out.println(name1 + "의피 : " + hp1);
 						System.out.println(name2 + "의피 : " + hp2);
+						System.out.println("========================");
 						if (hp1 < 0) {
 							im.show("패배");
 							lose();
@@ -163,8 +172,11 @@ public class Battle {
 						count2++;
 						hp1 -= skill22;
 						skillname(ran);
+						System.out.println("========================");
+						System.out.println(name2 + "의 " + skillname2);
 						System.out.println(name1 + "의피 : " + hp1);
 						System.out.println(name2 + "의피 : " + hp2);
+						System.out.println("========================");
 						if (hp1 < 0) { // 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
 							im.show("패배"); // 포켓몬1의 hp 0되면 패배 !!(break)
 							lose();
@@ -177,6 +189,7 @@ public class Battle {
 			}
 		}
 	}
+
 
 	public void skillname(int a) {
 		System.out.println(arrpo[a].getPokemonSkillName() + "!!!");
