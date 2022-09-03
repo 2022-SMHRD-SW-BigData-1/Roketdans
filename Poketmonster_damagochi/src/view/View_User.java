@@ -13,9 +13,9 @@ public class View_User {
 
 	public static void main(String[] args) {
 		
-		User_Pokemon up = new User_Pokemon();
-		Pokemons[] thisp = up.getPokemonsArray();
-		System.out.println(thisp[1].getPokemon_type());
+//		User_Pokemon up = new User_Pokemon();
+//		Pokemons[] thisp = up.getPokemonsArray();
+//		System.out.println(thisp[1].getPokemon_type());
 
 		Scanner sc = new Scanner(System.in);
 

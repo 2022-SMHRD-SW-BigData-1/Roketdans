@@ -5,8 +5,8 @@ import java.util.Iterator;
 import model.User_Pokemon;
 
 public class Controller_UserPokemon {
-	User_Pokemon userPokemon = new User_Pokemon();
-	int pokemon_number;
+//	User_Pokemon userPokemon = new User_Pokemon();
+//	int pokemon_number;
 	//레벨업 메소드		
 //	public void check_Level_Up() {
 //		if(userPokemon.getExp() == userPokemon.getMax_exp()) {

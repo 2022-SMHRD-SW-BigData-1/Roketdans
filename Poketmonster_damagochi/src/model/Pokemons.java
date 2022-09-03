@@ -13,27 +13,27 @@ public class Pokemons {
 	// 포켓몬 스킬이름
 	String pokemonSkillName;
 	// 레벨
-	int level;
+	int level =1;
 	// 고정 시작 레벨, 한계 레벨
 	final int max_level = 10; 
 	final int min_level = 1;
 	// 레벨 비례 경험치
-	int exp;
+	int exp =0;
 	// 레벨 비례 포켓몬 체력
-	int hp;
+	int hp =0;
 	int max_hp = level*10+(rd.nextInt(10)+1);
 	// 레벨 비례 기본 공격력, 스킬 공격력
 	int basic_attack = level*2;
 	int skill_attack = basic_attack * 2 + (rd.nextInt(10)+1);
 	// 타입 
-	String pokemon_type;
+	String pokemon_type = null;
 	
 	public int getSelect_number() {
 		return select_number = 0;
 	}
 
 	// 사용자가 선택"한 포켓몬 넘버
-	int select_number;
+	int select_number= 0;
 	
 	//기본 포켓몬 생성자
 	public Pokemons(String pokemonName, String skillName, String type_name) {
@@ -50,7 +50,6 @@ public class Pokemons {
 			this.pokemon_Nmae = pokemonName;
 			this.pokemonSkillName = skillName;
 			this.pokemon_type = type_name;
-			this.level = level;
 			this.exp = 0;
 			this.hp = this.max_hp;
 		}
@@ -79,27 +78,27 @@ public class Pokemons {
 		}
 
 		public Random getRd() {
-			return rd;
+			return this.rd;
 		}
 
 		public String getPokemon_Nmae() {
-			return pokemon_Nmae;
+			return this.pokemon_Nmae;
 		}
 
 		public String getPokemonSkillName() {
-			return pokemonSkillName;
+			return this.pokemonSkillName;
 		}
 
 		public int getLevel() {
-			return level;
+			return this.level;
 		}
 
 		public int getMax_level() {
-			return max_level;
+			return this.max_level;
 		}
 
 		public String getPokemon_type() {
-			return pokemon_type;
+			return this.pokemon_type;
 		}
 
 		public void setPokemon_type(String pokemon_type) {
@@ -107,29 +106,29 @@ public class Pokemons {
 		}
 
 		public int getMin_level() {
-			return min_level;
+			return this.min_level;
 		}
 
 		public int getExp() {
-			return exp;
+			return this.exp;
 		}
 
 
 		public int getHp() {
-			return hp;
+			return this.hp;
 		}
 
 		public int getMax_hp() {
-			return max_hp;
+			return this.max_hp;
 		}
 
 
 		public int getBasic_attack() {
-			return basic_attack;
+			return this.basic_attack;
 		}
 
 		public int getSkill_attack() {
-			return skill_attack;
+			return this.skill_attack;
 		}
 
 	

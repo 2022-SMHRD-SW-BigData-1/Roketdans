@@ -44,12 +44,11 @@ public class User_Pokemon {
 			wild_mobugi,wild_eonibugi,wild_lizard,wild_isanghaepul,wild_gaegulbanjang,wild_neupjjangi,wild_yadoran,
 			wild_nalssaengma,wild_mageukein,wild_paisungi,wild_beilipeu,wild_namudori,wild_supulbugi,update_pokemon};
 	// 로그인 했을 경우
-	public User_Pokemon(
-	String user_id, String pw)
-	{
+//	public User_Pokemon(String user_id, String pw){
+	
 
 		// 미완성
-	}
+//	}
 
 	// 객체 생성을 통해 해당 포켓몬 정보 조회할 때
 	public User_Pokemon() {
@@ -57,12 +56,10 @@ public class User_Pokemon {
 	}
 
 	public Pokemons[] getPokemonsArray() {
-		return pokemonsArray;
+		return this.pokemonsArray;
 	}
 
-	public void setPokemonsArray(Pokemons[] pokemonsArray) {
-		this.pokemonsArray = pokemonsArray;
-	}
+	
 
 	
 
