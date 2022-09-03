@@ -128,7 +128,7 @@ public class Controller_DAO {
 		String sql = "select nick, skill_name, level_, max_hp, hp, exp from poke where = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, user_id);
-			
+			// sql문에 나온 결과물 rs에 담기
 			rs = psmt.executeQuery();
 			
 			String pokemon_name = null;
@@ -138,6 +138,7 @@ public class Controller_DAO {
 			int hp =0 ;
 			int exp =0;
 			while (rs.next()) {
+				// 해당 결과 변수에 담기
 				pokemon_name = rs.getString(1);
 				skill_name = rs.getString(2);
 				level = rs.getInt(3);

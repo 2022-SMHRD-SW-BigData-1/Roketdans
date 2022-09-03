@@ -3,13 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
-import controller.Controller_UserPokemon;
 import view.View_User;
 
 public class User_Pokemon {
-	Random rd = new Random();
 	User_VO userVO = new User_VO();
-	Controller_UserPokemon controlUser = new Controller_UserPokemon();
 
 	Pokemons ggobugi = new Pokemons("꼬부기", "로케트박치기", "물");
 	Pokemons pairi = new Pokemons("파이리", "플레어드라이브", "불");

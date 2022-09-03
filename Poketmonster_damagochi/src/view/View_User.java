@@ -3,16 +3,17 @@ package view;
 import java.util.Scanner;
 
 import controller.Controller_DAO;
+import model.Pokemons;
 import model.User_Pokemon;
 import model.User_VO;
-import model.Wild_pokemon;
 import model.story;
 
 public class View_User {
 
 	public static void main(String[] args) {
 		
-		
+		User_Pokemon up = new User_Pokemon();
+		Pokemons[] first_pokemon = up.getPokemonsArray();
 
 		Scanner sc = new Scanner(System.in);
 
@@ -22,7 +23,6 @@ public class View_User {
 		// 유저 가입, 로그인에 따른 정보 초기화 차이
 		story s = new story();
 		User_VO userVO = null;
-		Wild_pokemon wildPokemon = null;
 
 		// 메인 타이틀
 		 s.title();
@@ -51,15 +51,19 @@ public class View_User {
 					System.out.println("등록 성공");
 					System.out.println("=======================");
 					System.out.println();
+					userVO = new User_VO(id, pw, nick);
+//				포켓몬 선택 스토리 
 					choose = s.choose();
+					// 선택한 포켓몬 번호를 포켓몬 배열 마지막에 저장
+					first_pokemon[first_pokemon.length -1] = first_pokemon[choose-1];
+//				
 				} else {
 					System.out.println("등록 실패");
 					System.out.println("=======================");
 					System.out.println();
 				}
 				System.out.println();
-				userVO = new User_VO(id, pw, nick);
-//				userPokemon = new User_Pokemon(choose);
+				
 				break;
 
 			} else if (menu == 2) {
@@ -94,7 +98,6 @@ public class View_User {
 			System.out.println();
 			s.field();
 //			 야생 포켓몬 출현
-			wildPokemon = new Wild_pokemon();
 		} else if (move == 2) {
 			while (true) {
 				System.out.println();

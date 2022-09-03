@@ -1,9 +1,7 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Random;
 
-import oracle.net.aso.s;
 
 public class Pokemons {
 	
