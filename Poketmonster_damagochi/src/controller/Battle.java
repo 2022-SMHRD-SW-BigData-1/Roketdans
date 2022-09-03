@@ -39,6 +39,8 @@ public class Battle {
 					break;
 				}
 			}
+			int temp = arrpo[arrpo.length-1].getLevel();
+			arrpo[ran].setLevel(rd.nextInt(3)+temp-1);
 			String name2 = arrpo[ran].getPokemon_Nmae(); // 야생 포켓몬
 			int skill21 = arrpo[ran].getBasic_attack(); // 야생 포켓몬 기본데미지
 			int skill22 = arrpo[ran].getSkill_attack(); // 야생 포켓몬 스킬데미지
@@ -224,6 +226,17 @@ public class Battle {
 		System.out.println("현재 체력 : " + arrpo[arrpo.length - 1].getHp());
 		System.out.println("EXP : " + arrpo[arrpo.length - 1].getExp());
 	}
+	
+	public void heal() {
+		int temp = arrpo[arrpo.length-1].getHp();
+		int max = arrpo[arrpo.length-1].getMax_hp();
+		arrpo[arrpo.length-1].setHp(max);
+		System.out.println("============");
+		System.out.println(temp+" -----> " + max);
+		System.out.println("치료가 완료 되었습니다");
+		
+	}
+	
 
 	public void arrinsert(int s) {
 		s -= 1;

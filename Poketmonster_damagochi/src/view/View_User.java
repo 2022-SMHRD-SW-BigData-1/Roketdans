@@ -116,10 +116,11 @@ public class View_User {
 				battle.status();
 			} else if (move == 4) {
 				System.out.println();
-				System.out.print("치료센터로 이동합니다.");
+				System.out.println("치료센터로 이동합니다.");
+				battle.heal();
 			} else if (move == 5) {
 				System.out.println();
-				System.out.print("현재까지 플레이 내역을 저장합니다.");
+				System.out.println("현재까지 플레이 내역을 저장합니다.");
 				dao.save(first_pokemon, userVO.getId()); // 해당 유저의 아이디를 받아 아이디로 찾아 유저 포켓몬 정보 최신화
 			} else if (move == 6) {
 //			매개값으로 유저 id를 받아 포켓몬 정보 확인하기
