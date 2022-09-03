@@ -57,6 +57,18 @@ public class Pokemons {
 		
 		
 
+		public void setMax_hp(int max_hp) {
+			this.max_hp = max_hp;
+		}
+
+		public void setPokemon_Nmae(String pokemon_Nmae) {
+			this.pokemon_Nmae = pokemon_Nmae;
+		}
+
+		public void setPokemonSkillName(String pokemonSkillName) {
+			this.pokemonSkillName = pokemonSkillName;
+		}
+
 		public void setLevel(int level) {
 			this.level = level;
 		}
