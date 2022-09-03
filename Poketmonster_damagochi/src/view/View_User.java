@@ -125,6 +125,8 @@ public class View_User {
 			System.out.println();
 			System.out.print("현재까지 플레이 내역을 저장합니다.");
 		} else if (move == 6) {
+//			매개값으로 유저 id를 받아 포켓몬 정보 확인하기
+			
 			System.out.println();
 			System.out.print("게임을 종료합니다.");
 		} else {
