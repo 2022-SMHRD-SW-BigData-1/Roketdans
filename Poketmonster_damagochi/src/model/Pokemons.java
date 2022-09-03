@@ -56,6 +56,89 @@ public class Pokemons {
 			this.exp = this.min_exp;
 			this.hp = this.max_hp;
 		}
+		
+		
+		
+
+		public void setLevel(int level) {
+			this.level = level;
+		}
+
+		public void setExp(int exp) {
+			this.exp = exp;
+		}
+
+		public void setHp(int hp) {
+			this.hp = hp;
+		}
+
+		public void setBasic_attack(int basic_attack) {
+			this.basic_attack = basic_attack;
+		}
+
+		public void setSkill_attack(int skill_attack) {
+			this.skill_attack = skill_attack;
+		}
+
+		public Random getRd() {
+			return rd;
+		}
+
+		public String getPokemon_Nmae() {
+			return pokemon_Nmae;
+		}
+
+		public String getPokemonSkillName() {
+			return pokemonSkillName;
+		}
+
+		public int getLevel() {
+			return level;
+		}
+
+		public int getMax_level() {
+			return max_level;
+		}
+
+		public int getMin_level() {
+			return min_level;
+		}
+
+		public int getExp() {
+			return exp;
+		}
+
+		public int getMax_exp() {
+			return max_exp;
+		}
+
+		public int getMin_exp() {
+			return min_exp;
+		}
+
+		public int getHp() {
+			return hp;
+		}
+
+		public int getMax_hp() {
+			return max_hp;
+		}
+
+		public int getMin_hp() {
+			return min_hp;
+		}
+
+		public int getBasic_attack() {
+			return basic_attack;
+		}
+
+		public int getSkill_attack() {
+			return skill_attack;
+		}
+
+		public int getEvolution() {
+			return evolution;
+		}
 	
 	
 	
@@ -81,8 +164,5 @@ public class Pokemons {
 	
 	
 	
-	
-	
-//	ArrayList<Pokemons> pokemons = new ArrayList<Pokemons>();
 	
 }
