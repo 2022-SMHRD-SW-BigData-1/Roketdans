@@ -5,9 +5,13 @@ import java.util.Random;
 
 import oracle.net.aso.s;
 
-public abstract class Pokemons {
+public class Pokemons {
 	
 	Random rd = new Random();
+	//포켓몬 이름
+	String pokemon_Nmae;
+	// 포켓몬 스킬이름
+	String pokemonSkillName;
 	// 레벨
 	int level;
 	// 고정 시작 레벨, 한계 레벨
@@ -19,14 +23,11 @@ public abstract class Pokemons {
 	int min_exp = 0;
 	// 레벨 비례 포켓몬 체력
 	int hp;
-	int max_hp = level*10+10;
+	int max_hp = level*10+(rd.nextInt(10)+1);
 	int min_hp = 0;
-	//포켓몬 이름
-	String pokemon_name = "test"; // => test가 출력시 초기화 에러
-	//포켓몬 스킬
-	String pokemon_skill_name = "test";// => test가 출력시 초기화 에러
-	//포켓몬 타입
-	String pokemon_type = "test";// => test가 출력시 초기화 에러
+	// 레벨 비례 기본 공격력, 스킬 공격력
+	int basic_attack = level*2;
+	int skill_attack = basic_attack * 2 + (rd.nextInt(10)+1);
 	
 	//1,2 차 진화
 	int evolution; // => 기본 값 : 1       1차 진화 값 : 2         2차 진화 값 :  3
@@ -35,193 +36,44 @@ public abstract class Pokemons {
 		return select_number = 0;
 	}
 
-	// 사용자가 선택한 포켓몬 넘버
+	// 사용자가 선택"한 포켓몬 넘버
 	int select_number;
 	
-	// 레벨 비례 기본 공격력, 스킬 공격력
-	int basic_attack = level*2;
-	int skill_attack = basic_attack * 2 + (rd.nextInt(10)+1);
+	//기본 포켓몬 생성자
+	public Pokemons(String pokemonName, String skillName) {
+		this.pokemon_Nmae = pokemonName;
+		this.pokemonSkillName = skillName;
+		this.level = 1;
+		this.exp = this.min_exp;
+		this.hp = this.max_hp;
+	}
+	
+	//야생 포켓몬 생성자
+		public Pokemons(String pokemonName , String skillName,String rando) {
+			this.pokemon_Nmae = pokemonName;
+			this.pokemonSkillName = skillName;
+			this.level = level;
+			this.exp = this.min_exp;
+			this.hp = this.max_hp;
+		}
+	
+	
+	
 	// 진화에 따른 포켓몬 이름
-	String[] pokemons_names = {"꼬부기", "파이리","이상해씨","개구마르","물짱이","야돈","포니타","브케인","불꽃숭이","치코리타","나무지기","모부기"}; // 기본 포켓몬
-	String[] pokemons_evolution1 = {"어니부기","리자드","이상해풀","개굴반장","늪짱이","야도란","날쌩마","마그케인","파이숭이","베이리프","나무돌이","수풀부기"}; // 1차 진화
-	String[] pokemons_evolution2 = {"거북왕","리자몽","이상해꽃","개굴닌자","대짱이","메가야도란","날쌩마","블레이범","초염몽","메가니움","나무킹","토대부기"}; // 2차 진화
+//	String[] pokemons_names = {"꼬부기", "파이리","이상해씨","꼬부기", "파이리","이상해씨","개구마르","물짱이","야돈","포니타","브케인","불꽃숭이","치코리타","나무지기","모부기","어니부기","리자드","이상해풀","개굴반장","늪짱이","야도란","날쌩마","마그케인","파이숭이","베이리프","나무돌이","수풀부기"}; // 27
+//	String[] pokemons_skill_1 = {"로케트박치기","플레어드라이브","씨폭탄","물의파동","머드숏","파도타기","불대문자","분연","플레어드라이브","누르기","힘껏치기","기가드레인","물의파동","드래콘크루","꽃잎댄스","속여때리기","죽기살기","사념의박치기","니트로차지","이판사판태클","플레어드라이브","자연의은혜","힘껏치기","리프스툼"}; // 기본 포켓몬 스킬
+//	String[] pokemons_skill_2 = {"물의파동","드래콘크루","꽃잎댄스","속여때리기","죽기살기","사념의박치기","니트로차지","이판사판태클","플레어드라이브","자연의은혜","힘껏치기","리프스툼"}; // 1차 진화 스킬
+//	String[] pokemons_evolution1 = {"어니부기","리자드","이상해풀","개굴반장","늪짱이","야도란","날쌩마","마그케인","파이숭이","베이리프","나무돌이","수풀부기"}; // 1차 진화
 	// 진화에 따른 스킬
-	String[] pokemons_skill_1 = {"로케트박치기","플레어드라이브","씨폭탄","물의파동","머드숏","파도타기","불대문자","분연","플레어드라이브","누르기","힘껏치기","기가드레인"}; // 기본 포켓몬 스킬
-	String[] pokemons_skill_2 = {"물의파동","드래콘크루","꽃잎댄스","속여때리기","죽기살기","사념의박치기","니트로차지","이판사판태클","플레어드라이브","자연의은혜","힘껏치기","리프스툼"}; // 1차 진화 스킬
-	String[] pokemons_skill_3 = {"하이드로펌프","불꽃세례","덩굴채찍","막치기","물대포","사슬묶기","화염자동차","화염방사","회오리불꽃","메지컬리프","메가드레인","앞날가르기"}; // 2차 진화 스킬
 	
 	// 타입
-	String[] grass_type = {"이상해씨","치코리타","나무지기","모부기"}; // 풀타입 포켓몬 종류
-	String[] water_type = {"꼬부기","개구마르","물짱이","야돈"}; // 물타입 포켓몬 종류
-	String[] fire_type = {"파이리","포니타","브케인","불꽃송이"}; // 불타입 포켓몬 종류
-	
-	public int getSkill_attack() {
-		return skill_attack;
-	}
-
-	public String[] getPokemons_evolution1() {
-		return pokemons_evolution1;
-	}
-
-	public String[] getPokemons_evolution2() {
-		return pokemons_evolution2;
-	}
-
-	public String[] getPokemons_skill_1() {
-		return pokemons_skill_1;
-	}
-
-	public String[] getPokemons_skill_2() {
-		return pokemons_skill_2;
-	}
-
-	public String[] getPokemons_skill_3() {
-		return pokemons_skill_3;
-	}
-
-	
-	public Random getRd() {
-		return rd;
-	}
-	
-	public int getMax_level() {
-		return max_level;
-	}
-	
-	public int getMin_level() {
-		return min_level;
-	}
-	
-	public int getMax_exp() {
-		return max_exp;
-	}
-	
-	public int getMin_exp() {
-		return min_exp;
-	}
-	
-	public int getMax_hp() {
-		return max_hp;
-	}
-	
-	public int getMin_hp() {
-		return min_hp;
-	}
-	
-	public int getEvolution() {
-		return evolution;
-	}
-	
-	public int getBasic_attack() {
-		return basic_attack;
-	}
-	
-	public String[] getPokemons_names() {
-		return pokemons_names;
-	}
-	
-	public String[] getGrass_type() {
-		return grass_type;
-	}
-	
-	public String[] getWater_type() {
-		return water_type;
-	}
-	
-	public String[] getFire_type() {
-		return fire_type;
-	}
+//	String[] grass_type = {"이상해씨","치코리타","나무지기","모부기"}; // 풀타입 포켓몬 종류
+//	String[] water_type = {"꼬부기","개구마르","물짱이","야돈"}; // 물타입 포켓몬 종류
+//	String[] fire_type = {"파이리","포니타","브케인","불꽃송이"}; // 불타입 포켓몬 종류
 	
 	
-	
-	
-	public int getLevel() {
-		return level;
-	}
 
-	public void setLevel(int level) {
-		this.level = level;
-	}
-
-	public int getExp() {
-		return exp;
-	}
-
-	public void setExp(int exp) {
-		this.exp = exp;
-	}
-
-	public int getHp() {
-		return hp;
-	}
-
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-
-	public String getPokemon_name() {
-		return pokemon_name;
-	}
-
-	public void setPokemon_name(String pokemon_name) {
-		this.pokemon_name = pokemon_name;
-	}
-
-	public String getPokemon_skill_name() {
-		return pokemon_skill_name;
-	}
-
-	public void setPokemon_skill_name(String pokemon_skill_name) {
-		this.pokemon_skill_name = pokemon_skill_name;
-	}
-
-	public String getPokemon_type() {
-		return pokemon_type;
-	}
-
-	public void setPokemon_type(String pokemon_type) {
-		this.pokemon_type = pokemon_type;
-	}
-
-	public void setRd(Random rd) {
-		this.rd = rd;
-	}
-
-	public void setEvolution(int evolution) {
-		this.evolution = evolution;
-	}
-
-	public void setBasic_attack(int basic_attack) {
-		this.basic_attack = basic_attack;
-	}
-
-	public void setPokemons_names(String[] pokemons_names) {
-		this.pokemons_names = pokemons_names;
-	}
-
-	public void setWater_type(String[] water_type) {
-		this.water_type = water_type;
-	}
-
-		// 타입 확인
-		// 조건 포켓몬의 이름이 초기화 시 사용 가능
-		public void check_type() {
-			for (int i = 0; i < fire_type.length; i++) {
-				if(fire_type[i].equals(pokemon_name)) {
-					pokemon_type = fire_type[i];
-				}
-			}
-			for (int i = 0; i < water_type.length; i++) {
-				if(water_type[i].equals(pokemon_name)) {
-					pokemon_type = water_type[i];
-				}
-			}
-			for (int i = 0; i < grass_type.length; i++) {
-				if(grass_type[i].equals(pokemon_name)) {
-					pokemon_type = grass_type[i];
-				}
-			}
-		}
+		
 		
 		
 			

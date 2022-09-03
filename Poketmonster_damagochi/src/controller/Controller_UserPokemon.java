@@ -20,15 +20,10 @@ public class Controller_UserPokemon {
 			userPokemon.setPokemon_name(userPokemon.getPokemons_evolution1()[userPokemon.getSelect_number()]);
 			userPokemon.setEvolution(2);
 			}
-		if(userPokemon.getLevel() == 10) {
-			userPokemon.setPokemon_name(userPokemon.getPokemons_evolution2()[userPokemon.getSelect_number()]);
-			userPokemon.setEvolution(3);
-		}
-	
+
 	}
 }
 	
-
 
 
 
