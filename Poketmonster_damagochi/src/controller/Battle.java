@@ -198,9 +198,11 @@ public class Battle {
 	public void win(int hp) {
 		int exp = arrpo[arrpo.length - 1].getExp();
 		int level = arrpo[arrpo.length - 1].getLevel();
+		arrpo[arrpo.length - 1].setExp(exp+1);
 		if (exp >= 2) {
 			arrpo[arrpo.length - 1].setLevel(level + 1);
 			arrpo[arrpo.length - 1].setExp(0);
+			System.out.println("축하 합니다 !!  "+level+1+"달성 !!");
 		}
 		arrpo[arrpo.length - 1].setHp(hp);
 	}
@@ -208,6 +210,7 @@ public class Battle {
 	public void lose() {
 		arrpo[arrpo.length - 1].setExp(0);
 		arrpo[arrpo.length - 1].setHp(0);
+		System.out.println("패널티로 경험치가 초기화 됩니다.");
 	}
 
 	public void status() {
