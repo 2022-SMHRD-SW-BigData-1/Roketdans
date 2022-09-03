@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 
+import controller.Battle;
 import controller.Controller_DAO;
 import model.Pokemons;
 import model.User_Pokemon;
@@ -14,7 +15,7 @@ public class View_User {
 		
 		User_Pokemon up = new User_Pokemon();
 		Pokemons[] first_pokemon = up.getPokemonsArray();
-
+		Battle battle = new Battle(first_pokemon);
 		Scanner sc = new Scanner(System.in);
 
 		Controller_DAO dao = new Controller_DAO();
@@ -97,6 +98,7 @@ public class View_User {
 			System.out.print("사냥터로 이동합니다.");
 			System.out.println();
 			s.field();
+			battle.vs();
 //			 야생 포켓몬 출현
 		} else if (move == 2) {
 			while (true) {

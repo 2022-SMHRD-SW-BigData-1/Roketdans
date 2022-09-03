@@ -13,7 +13,7 @@ public class Battle {
 	User_Pokemon upo = new User_Pokemon();
 	Pokemons[] arrpo = upo.getPokemonsArray();
 
-	public Battle() {
+	public Battle(Pokemons[] first_pokemon) {
 
 	}
 
