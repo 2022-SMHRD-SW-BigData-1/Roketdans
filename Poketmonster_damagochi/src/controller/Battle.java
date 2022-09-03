@@ -3,6 +3,9 @@ package controller;
 import java.util.Random;
 import java.util.Scanner;
 
+import model.Pokemons;
+import model.User_Pokemon;
+
 public class Battle {
 	Scanner sc = new Scanner(System.in);
 	Random rd = new Random();
@@ -28,7 +31,9 @@ public class Battle {
 //					im.("꼬부기");
 //		} 
 //	
-			
+			User_Pokemon up = new User_Pokemon();
+			Pokemons[] thisp = up.getPokemonsArray();
+			thisp[1].getPokemon_type();
 
 			int tempdamage1; // 포켓몬 1 스킬1 데미지
 			int tempdamage11; // 포켓몬 1 스킬2 데미지

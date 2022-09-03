@@ -98,6 +98,14 @@ public class Pokemons {
 			return max_level;
 		}
 
+		public String getPokemon_type() {
+			return pokemon_type;
+		}
+
+		public void setPokemon_type(String pokemon_type) {
+			this.pokemon_type = pokemon_type;
+		}
+
 		public int getMin_level() {
 			return min_level;
 		}
