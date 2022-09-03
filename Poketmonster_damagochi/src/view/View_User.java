@@ -1,4 +1,5 @@
 package view;
+
 import java.util.Scanner;
 import controller.Battle;
 import controller.Controller_DAO;
@@ -6,9 +7,10 @@ import model.Pokemons;
 import model.User_Pokemon;
 import model.User_VO;
 import model.story;
+
 public class View_User {
 	public static void main(String[] args) {
-		
+
 		User_Pokemon up = new User_Pokemon();
 		Pokemons[] first_pokemon = up.getPokemonsArray();
 		Battle battle = new Battle(first_pokemon);
@@ -20,7 +22,7 @@ public class View_User {
 		story s = new story();
 		User_VO userVO = null;
 		// 메인 타이틀
-		 s.title();
+		s.title();
 		// 회원가입 , 로그인
 		while (true) {
 			System.out.print("[1]회원가입  [2]로그인 >> ");
@@ -46,7 +48,7 @@ public class View_User {
 //				포켓몬 선택 스토리
 					choose = s.choose();
 					// 선택한 포켓몬 번호를 포켓몬 배열 마지막에 저장
-					//				
+					//
 					battle.arrinsert(choose);
 				} else {
 					System.out.println("등록 실패");
@@ -54,7 +56,7 @@ public class View_User {
 					System.out.println();
 				}
 				System.out.println();
-				
+
 				break;
 			} else if (menu == 2) {
 				// 로그인 기능 연결
@@ -66,68 +68,69 @@ public class View_User {
 				if (res == true) {
 					// call_Pokemon 메소드 사용시 포켓몬 담긴 배열 마지막에 유저의 포켓몬 저장
 					userVO = new User_VO(id, pw);
-					dao.call_Pokemon(first_pokemon,userVO.getId());
+					dao.call_Pokemon(first_pokemon, userVO.getId());
 					System.out.println("로그인 성공");
 				} else {
 					System.out.println("로그인 실패");
 				}
-				
+
 				break;
 			}
 		}
-		
-		System.out.print("===================== < 선택해주세요 > =====================");
-		System.out.println();
-		System.out.println();
-		System.out.println("[1]사냥터 [2]체육관도전 [3]상태창 확인 [4]치료센터 [5]세이브 [6]종료");
-		System.out.print("입력해주세요 : ");
-		int move = sc.nextInt();
-		if (move == 1) {
+		while (true) {
+			System.out.print("===================== < 선택해주세요 > =====================");
 			System.out.println();
-			System.out.print("사냥터로 이동합니다.");
 			System.out.println();
-			s.field();
-			battle.vs();
-//			 야생 포켓몬 출현
-		} else if (move == 2) {
-			while (true) {
+			System.out.println("[1]사냥터 [2]체육관도전 [3]상태창 확인 [4]치료센터 [5]세이브 [6]종료");
+			System.out.print("입력해주세요 : ");
+			int move = sc.nextInt();
+			if (move == 1) {
 				System.out.println();
-				System.out.print("[1] 첫번째 체육관 [2] 두번째 체육관");
-				System.out.print("어떤 체육관에 도전하시겠습니까? : ");
-				int gymchoice = sc.nextInt();
-				if (gymchoice == 1) {
+				System.out.print("사냥터로 이동합니다.");
+				System.out.println();
+				s.field();
+				battle.vs();
+//			 야생 포켓몬 출현
+			} else if (move == 2) {
+				while (true) {
 					System.out.println();
-					s.gym1();
-					break;
-				} else if (gymchoice == 2) {
-					System.out.println();
-					s.gym2();
-					break;
-				} else {
-					System.out.println();
-					System.out.print("잘못 입력하셨습니다.");
+					System.out.print("[1] 첫번째 체육관 [2] 두번째 체육관");
+					System.out.print("어떤 체육관에 도전하시겠습니까? : ");
+					int gymchoice = sc.nextInt();
+					if (gymchoice == 1) {
+						System.out.println();
+						s.gym1();
+						break;
+					} else if (gymchoice == 2) {
+						System.out.println();
+						s.gym2();
+						break;
+					} else {
+						System.out.println();
+						System.out.print("잘못 입력하셨습니다.");
+					}
 				}
-			}
-		} else if (move == 3) {
-			System.out.println();
-			System.out.print("상태창을 출력합니다.");
-//			System.out.print("level: "+userPokemon.getLevel()+" ");
-//			System.out.print("hp: "+userPokemon.getHp()+" ");
-//			System.out.print("exp: "+userPokemon.getExp()+" ");
-		} else if (move == 4) {
-			System.out.println();
-			System.out.print("치료센터로 이동합니다.");
-		} else if (move == 5) {
-			System.out.println();
-			System.out.print("현재까지 플레이 내역을 저장합니다.");
-		} else if (move == 6) {
+			} else if (move == 3) {
+				System.out.println();
+				System.out.print("상태창을 출력합니다.");
+				battle.status();
+			} else if (move == 4) {
+				System.out.println();
+				System.out.print("치료센터로 이동합니다.");
+			} else if (move == 5) {
+				System.out.println();
+				System.out.print("현재까지 플레이 내역을 저장합니다.");
+				dao.save(first_pokemon, userVO.getId()); // 해당 유저의 아이디를 받아 아이디로 찾아 유저 포켓몬 정보 최신화
+			} else if (move == 6) {
 //			매개값으로 유저 id를 받아 포켓몬 정보 확인하기
-			dao.save(first_pokemon ,userVO.getId()); // 해당 유저의 아이디를 받아 아이디로 찾아 유저 포켓몬 정보 최신화
-			System.out.println();
-			System.out.print("게임을 종료합니다.");
-		} else {
-			System.out.println();
-			System.out.print("잘못 입력하셨습니다!!");
+				dao.save(first_pokemon, userVO.getId()); // 해당 유저의 아이디를 받아 아이디로 찾아 유저 포켓몬 정보 최신화
+				System.out.println();
+				System.out.print("게임을 종료합니다.");
+				break;
+			} else {
+				System.out.println();
+				System.out.print("잘못 입력하셨습니다!!");
+			}
 		}
 	}
 }
