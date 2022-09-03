@@ -3,7 +3,9 @@ package model;
 import java.util.Random;
 
 
+
 public class Pokemons {
+	
 	
 	Random rd = new Random();
 	//포켓몬 이름

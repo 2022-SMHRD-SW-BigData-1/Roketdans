@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 
+import controller.Battle;
 import controller.Controller_DAO;
 import model.Pokemons;
 import model.User_Pokemon;
@@ -13,8 +14,8 @@ public class View_User {
 	public static void main(String[] args) {
 		
 		User_Pokemon up = new User_Pokemon();
-		Pokemons[] first_pokemon = up.getPokemonsArray();
-
+		Pokemons[] pokemon = up.getPokemonsArray();
+		Battle battle = new Battle(pokemon);
 		Scanner sc = new Scanner(System.in);
 
 		Controller_DAO dao = new Controller_DAO();
@@ -55,7 +56,7 @@ public class View_User {
 //				포켓몬 선택 스토리 
 					choose = s.choose();
 					// 선택한 포켓몬 번호를 포켓몬 배열 마지막에 저장
-					first_pokemon[first_pokemon.length -1] = first_pokemon[choose-1];
+					pokemon[pokemon.length -1] = pokemon[choose-1];
 //				
 				} else {
 					System.out.println("등록 실패");

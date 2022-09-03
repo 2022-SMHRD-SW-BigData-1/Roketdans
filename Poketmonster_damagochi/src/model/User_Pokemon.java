@@ -6,6 +6,7 @@ import java.util.Random;
 import view.View_User;
 
 public class User_Pokemon {
+	
 	User_VO userVO = new User_VO();
 
 	Pokemons ggobugi = new Pokemons("꼬부기", "로케트박치기", "물");
