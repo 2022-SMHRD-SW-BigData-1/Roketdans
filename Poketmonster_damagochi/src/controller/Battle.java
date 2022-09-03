@@ -131,7 +131,7 @@ public class Battle {
 					// 포켓몬2 의 hp - ( 포켓몬 1 임시 스킬데미지 )
 					// 포켓몬 2의 hp 0되면 승리 !! (break)
 				} else if (menu1 == 2) {
-					if (count1 < 1) {
+					if (count1 > 1) {
 						System.out.println("스킬을 사용할수 없습니다");
 						continue;
 					}
@@ -165,7 +165,7 @@ public class Battle {
 						// 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
 						// 포켓몬 1의 hp 0되면 패배 !!(break)
 					} else if (menu1 == 2) {
-						if (count2 < 1) {
+						if (count2 > 1) {
 							System.out.println("스킬을 사용할수 없습니다");
 							continue;
 						}
@@ -181,7 +181,8 @@ public class Battle {
 						}
 					}
 					break; // 야생포켓몬 턴 종료
-				}
+				} //
+				
 			}
 		}
 	}
@@ -206,14 +207,15 @@ public class Battle {
 	}
 
 	public void status() {
-
+		String na = arrpo[arrpo.length-1].getPokemon_Nmae();
+		im.show(na);
 		System.out.println("포켓몬 이름 : " + arrpo[arrpo.length - 1].getPokemon_Nmae());
 		System.out.println("타입 : " + arrpo[arrpo.length - 1].getPokemon_type());
-		System.out.println("스킬명 :" + arrpo[arrpo.length - 1].getPokemonSkillName());
-		System.out.println(arrpo[arrpo.length - 1].getLevel());
-		System.out.println(arrpo[arrpo.length - 1].getMax_hp());
-		System.out.println(arrpo[arrpo.length - 1].getHp());
-		System.out.println(arrpo[arrpo.length - 1].getExp());
+		System.out.println("스킬명 : " + arrpo[arrpo.length - 1].getPokemonSkillName());
+		System.out.println("LEVEL : "+arrpo[arrpo.length - 1].getLevel());
+		System.out.println("최대 체력 : "+arrpo[arrpo.length - 1].getMax_hp());
+		System.out.println("현재 체력 : "+arrpo[arrpo.length - 1].getHp());
+		System.out.println("EXP : "+arrpo[arrpo.length - 1].getExp());
 	}
-
+	
 }
