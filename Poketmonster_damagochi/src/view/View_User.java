@@ -23,7 +23,7 @@ public class View_User {
 		Wild_pokemon wildPokemon = null;
 
 		// 메인 타이틀
-		s.title();
+		 s.title();
 
 		// 회원가입 , 로그인
 
@@ -77,57 +77,5 @@ public class View_User {
 				break;
 			}
 		}
-		System.out.print("===================== < 선택해주세요 > =====================");
-		System.out.println();
-		System.out.println();
-		System.out.println("[1]사냥터 [2]체육관도전 [3]상태창 확인 [4]치료센터 [5]세이브 [6]종료");
-		System.out.print("입력해주세요 : ");
-		int move = sc.nextInt();
-		if (move == 1) {
-			System.out.println();
-			System.out.print("사냥터로 이동합니다.");
-			System.out.println();
-			s.field();
-//			 야생 포켓몬 출현
-			wildPokemon = new Wild_pokemon();
-		} else if (move == 2) {
-			while (true) {
-				System.out.println();
-				System.out.print("[1] 첫번째 체육관 [2] 두번째 체육관");
-				System.out.print("어떤 체육관에 도전하시겠습니까? : ");
-				int gymchoice = sc.nextInt();
-				if (gymchoice == 1) {
-					System.out.println();
-					s.gym1();
-					break;
-				} else if (gymchoice == 2) {
-					System.out.println();
-					s.gym2();
-					break;
-				} else {
-					System.out.println();
-					System.out.print("잘못 입력하셨습니다.");
-				}
-			}
-		} else if (move == 3) {
-			System.out.println();
-			System.out.print("상태창을 출력합니다.");
-			System.out.print("level: "+userPokemon.getLevel()+" ");
-			System.out.print("hp: "+userPokemon.getHp()+" ");
-			System.out.print("exp: "+userPokemon.getExp()+" ");
-		} else if (move == 4) {
-			System.out.println();
-			System.out.print("치료센터로 이동합니다.");
-		} else if (move == 5) {
-			System.out.println();
-			System.out.print("현재까지 플레이 내역을 저장합니다.");
-		} else if (move == 6) {
-			System.out.println();
-			System.out.print("게임을 종료합니다.");
-		} else {
-			System.out.println();
-			System.out.print("잘못 입력하셨습니다!!");
-		}
-
 	}
 }

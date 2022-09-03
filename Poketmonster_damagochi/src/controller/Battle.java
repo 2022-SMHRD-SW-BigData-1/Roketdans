@@ -94,6 +94,7 @@ public class Battle {
 					// 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
 					// 포켓몬 1의 hp 0되면 패배 !!(break)
 				} else if (menu1 == 2) {
+					
 					// 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
 					// 포켓몬1의 hp 0되면 패배 !!(break)
 

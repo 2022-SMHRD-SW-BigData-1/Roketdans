@@ -14,29 +14,49 @@ public class Controller_UserPokemon {
 		}
 	}
 	
-	//진화 확인 메소드
-//	public void check_evolution() {
-//		if(userPokemon.getLevel() == 5) {
-//				evolution=1;
-//			}
-//		}else if(level == 10) {
-//			evolution =2;
-//		}
-	
-	
-	
-// 같은 포켓몬 이름 확인
-//	public int find_pokemon_name() {
-//		int in_number;
-//		for (int i = 0; i < .length; i++) {
-//			if(pokemons_names[i] == userPokemon.getPokemon_name()) {
-//				userPokemon.getPokemon_name() = pokemons_evolution_1[i];
-//			}
-//		}
-//	}
-	
-	
+	// 진화 조건 확인 후 해당 포켓몬 진화 포켓몬 이름으로 변경하는 메소드
+	public void check_evolution() {
+		if(userPokemon.getLevel() == 5) {
+			userPokemon.setPokemon_name(userPokemon.getPokemons_evolution1()[userPokemon.getSelect_number()]);
+			userPokemon.setEvolution(2);
+			}
+
 	}
-	
+}
 	
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//	// 진화 확인 후 해당 포켓몬 진화 포켓몬 이름으로 변경하는 메소드
+//	public void check_evolution() {
+//		if(userPokemon.getLevel() == 5) {
+//			userPokemon.setPokemon_name(userPokemon.getpokemons_evolution1[userPokemon.getSelect_number]);
+//			userPokemon.setEvolution(2);
+//			}
+//		}else if(level == 10) {
+//			userPokemon.setPokemon_name(userPokemon.getpokemons_evolution2[userPokemon.getSelect_number]);
+//			userPokemon.setEvolution(3);
+//		}

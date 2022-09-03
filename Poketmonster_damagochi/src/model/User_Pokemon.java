@@ -3,43 +3,56 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
+import controller.Controller_UserPokemon;
 import view.View_User;
 
-public class User_Pokemon extends Pokemons{
+public class User_Pokemon {
 	Random rd = new Random();
 	User_VO userVO = new User_VO();
-	// 포켓몬 테이블에 정보가 null이라면 레벨 1
-	// 있다면 포켓몬 정보 끌어 초기화
-	// 유저 id를 받아 초기화
-	
-	// 회원가입 할 경우 레벨 1로	
-	public  User_Pokemon(int select_num) {
-		//포켓몬이 선택한 숫자를 초기화
-		this.select_number = select_num;
-		
-		level = 1;
-		hp = level *10 + (rd.nextInt(10)+1);
-		exp = 0;
-		pokemon_name = pokemons_names[select_num-1];
-		check_type();
-	}
-	
+	Controller_UserPokemon controlUser = new Controller_UserPokemon();
+	Pokemons ggobugi = new Pokemons("꼬부기", "로케트박치기");
+	Pokemons pairi = new Pokemons("파이리", "플레어드라이브");
+	Pokemons isanghassi = new Pokemons("이상해씨", "씨폭탄");
+	Pokemons wild_ggobugi = new Pokemons("꼬부기", "로케드박치기", "rd");
+	Pokemons wild_pairi = new Pokemons("파이리", "플레어드라이브", "rd");
+	Pokemons wild_isanghassi = new Pokemons("이상해씨", "씨폭탄", "rd");
+	Pokemons wild_gagumar = new Pokemons("개구마르", "물의파동", "rd");
+	Pokemons wild_muljjangi = new Pokemons("물짱이", "머드숏", "rd");
+	Pokemons wild_yadon = new Pokemons("야돈", "파도타기", " rd");
+	Pokemons wild_ponita = new Pokemons("포니타", "불대문자", "rd");
+	Pokemons wild_bkein = new Pokemons("브케인", "분연", "rd");
+	Pokemons wild_buggochsugi = new Pokemons("불꽃숭이", "플레어드라이브", "rd");
+	Pokemons wild_chikorita = new Pokemons("치코리타", "누르기", "rd");
+	Pokemons wild_namujigi = new Pokemons("나무지기", "힘껏치기", "rd");
+	Pokemons wild_mobugi = new Pokemons("모부기", "기가드레인", "rd");
+	Pokemons wild_eonibugi = new Pokemons("어니부기", "물의파동", "rd");
+	Pokemons wild_lizard = new Pokemons("리자드", "드래곤크루", "rd");
+	Pokemons wild_isanghaepul = new Pokemons("이상해풀", "꽃잎댄스", "rd");
+	Pokemons wild_gaegulbanjang = new Pokemons("개굴반장", "속여때리기", "rd");
+	Pokemons wild_neupjjangi = new Pokemons("늪짱이", "죽기살기", "rd");
+	Pokemons wild_yadoran = new Pokemons("야도란", "사념의박치기", "rd");
+	Pokemons wild_nalssaengma = new Pokemons("날쌩마", "니트로차지", "rd");
+	Pokemons wild_mageukein = new Pokemons("마그케인", "이판사판태클","rd");
+	Pokemons wild_paisungi = new Pokemons("파이숭이", "플레어드라이브", "rd");
+	Pokemons wild_beilipeu = new Pokemons("베이리프", "자연의은혜", "rd");
+	Pokemons wild_namudori = new Pokemons("나무돌이", "힘껏치기", "rd");
+	Pokemons wild_supulbugi = new Pokemons("수풀부기", "리프스톰", "rd");
+
+	Pokemons[] pokemonsArray = {ggobugi,pairi,isanghassi,wild_ggobugi,wild_pairi,wild_isanghassi,wild_gagumar,
+			wild_muljjangi,wild_yadon,wild_ponita,wild_bkein,wild_buggochsugi,wild_chikorita,wild_namujigi,
+			wild_mobugi,wild_eonibugi,wild_lizard,wild_isanghaepul,wild_gaegulbanjang,wild_neupjjangi,wild_yadoran,
+			wild_nalssaengma,wild_mageukein,wild_paisungi,wild_beilipeu,wild_namudori,wild_supulbugi};
 	// 로그인 했을 경우
-	public User_Pokemon(String user_id, String pw) {
-		
-		
-	}
-	
-	//객체 생성을 통해 해당 포켓몬 정보 조회할 때
-	public User_Pokemon() {
-		
+	public User_Pokemon(
+	String user_id, String pw)
+	{
+
+		// 미완성
 	}
 
-			
-			
-		
-		
-		
-	
-	
+	// 객체 생성을 통해 해당 포켓몬 정보 조회할 때
+	public User_Pokemon() {
+
+	}
+
 }
