@@ -206,6 +206,7 @@ public class Battle {
 	}
 
 	public void status() {
+		
 		System.out.println(arrpo[arrpo.length - 1].getPokemon_Nmae());
 		System.out.println(arrpo[arrpo.length - 1].getPokemon_type());
 		System.out.println(arrpo[arrpo.length - 1].getPokemonSkillName());
