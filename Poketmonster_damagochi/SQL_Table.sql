@@ -22,6 +22,6 @@ constraint Poke_id_fk foreign key (id) references join(id));
 drop table poke;
 select * from poke;
 select * from join;
-desc POKE;
+desc poke
 desc join;
 

@@ -66,7 +66,7 @@ public class View_User {
 				if (res == true) {
 					// call_Pokemon 메소드 사용시 포켓몬 담긴 배열 마지막에 유저의 포켓몬 저장
 					userVO = new User_VO(id, pw);
-					dao.call_Pokemon(userVO.getId());
+					dao.call_Pokemon(first_pokemon,userVO.getId());
 					System.out.println("로그인 성공");
 				} else {
 					System.out.println("로그인 실패");
@@ -122,7 +122,7 @@ public class View_User {
 			System.out.print("현재까지 플레이 내역을 저장합니다.");
 		} else if (move == 6) {
 //			매개값으로 유저 id를 받아 포켓몬 정보 확인하기
-			dao.save(userVO.getId()); // 해당 유저의 아이디를 받아 아이디로 찾아 유저 포켓몬 정보 최신화
+			dao.save(first_pokemon ,userVO.getId()); // 해당 유저의 아이디를 받아 아이디로 찾아 유저 포켓몬 정보 최신화
 			System.out.println();
 			System.out.print("게임을 종료합니다.");
 		} else {

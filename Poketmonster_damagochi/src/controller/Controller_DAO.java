@@ -11,7 +11,7 @@ import model.User_Pokemon;
 public class Controller_DAO {
 	// 저장할 포켓몬 객체 선언
 	User_Pokemon up = new User_Pokemon();
-	Pokemons[] update_pk = up.getPokemonsArray();
+	Pokemons[] update_pk = null;
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
@@ -98,7 +98,8 @@ public class Controller_DAO {
 	}
 	
 	// 포켓몬 정보 저장
-	public void save(String user_id) {
+	public void save(Pokemons[] pokemon, String user_id) {
+		update_pk = pokemon;
 		try {
 			getCon();
 			String sql = "update poke set (skill_name, level_, max_hp, hp, exp)=(?,?,?,?,?) where id = ? ";
@@ -121,7 +122,8 @@ public class Controller_DAO {
 		
 	}
 	
-	public void call_Pokemon(String user_id) {
+	public void call_Pokemon(Pokemons[] pokemon ,String user_id) {
+		update_pk = pokemon;
 		try {
 		getCon();
 		String sql = "select nick, skill_name, level_, max_hp, hp, exp from poke where = ?";
