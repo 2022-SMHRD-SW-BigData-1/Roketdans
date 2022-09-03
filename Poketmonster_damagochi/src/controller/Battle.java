@@ -10,7 +10,10 @@ public class Battle {
 	Scanner sc = new Scanner(System.in);
 	Random rd = new Random();
 	image im = new image();
-
+	User_Pokemon upo = new User_Pokemon();
+	Pokemons[] arrpo = upo.getPokemonsArray();
+	
+	
 	public Battle() {
 
 	}
@@ -21,6 +24,10 @@ public class Battle {
 		int menu = sc.nextInt();
 		if (menu == 1) {
 
+			User_Pokemon upo = new User_Pokemon();
+			Pokemons[] arrpo = upo.getPokemonsArray();
+			
+			
 			// 포켓몬 1 이미지
 			// vs 이미지
 			// 포켓몬 2 이미지
@@ -116,5 +123,15 @@ public class Battle {
 			}
 		}
 	}
-
+	
+	public void status() {
+		System.out.println(arrpo[arrpo.length-1].getPokemon_Nmae()+
+				arrpo[arrpo.length-1].getPokemon_type()+
+				arrpo[arrpo.length-1].getPokemonSkillName()+
+				arrpo[arrpo.length-1].getLevel()+
+				arrpo[arrpo.length-1].getMax_hp()+
+				arrpo[arrpo.length-1].getHp()+
+				arrpo[arrpo.length-1].getExp());
+	}
+	
 }
