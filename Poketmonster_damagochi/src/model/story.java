@@ -3,6 +3,8 @@ package model;
 import java.io.IOException;
 import java.util.Scanner;
 
+import controller.image;
+
 public class story {
 	// 글자 멈춤 메소드
 	
@@ -89,18 +91,22 @@ public class story {
 		}
 		System.out.println("[1] 꼬부기   [2] 파이리   [3] 이상해씨");
 		System.out.println();
+		image i = new image();
 		while(true) {
 			System.out.print("포켓몬을 선택하세요 : ");
 			choice = sc.nextInt();
 			if(choice == 1) {
 				slowPrint("꼬부기 : 꼬북! 꼬북!",10);
 				// 이미지 삽입
+				i.show("꼬부기");
 				 break;
 		}else if(choice == 2) {
 			slowPrint("파이리 : 푸와오왘!!",10);
+				i.show("파이리");
 				  break;
 		}else if(choice == 3) {
 			slowPrint("이상해씨 : 이상! 이상!",100);
+				i.show("이상해씨");
 				  break;
 		}else{
 			slowPrint("잘못 입력하셨습니다.",10);
@@ -138,9 +144,24 @@ public class story {
 			System.out.println();
 		}
 		
+		// 승리
+		public static void win(){
+			image i= new image();
+			slowPrint("승리", 10);
+			i.show("승리");
+		}
+
+		// 패배
+		public static void fail() {
+			image i = new image();
+			slowPrint("패배", 10);
+			i.show("패배");
+		}
+
 		// 로켓단 등장 멘트
-		
 		public static void roketdan(){
+			image e = new image();
+			e.show("로켓단");
 			String[] roketdanText = {"나 : 뭐야? 뱃지가 사라졌어...","뱃지도둑이 훔쳐 간거 같아 ㅠㅠ","\t",
 					"로켓단 : 뱃지 도둑이라고 말하신다면","대답해 드리는게 인지상정","이 세계의 파괴를 막기 위해","이 세계의 평화를 지키기 위해","사랑과 진실 어둠을 뿌리고 다니는","포켓몬의 감초 귀염둥이 악당","나는 지은!!","나는 민진!!","나는 냐옹 이다옹~"};
 			for(int i = 0; i<roketdanText.length; i++) {
