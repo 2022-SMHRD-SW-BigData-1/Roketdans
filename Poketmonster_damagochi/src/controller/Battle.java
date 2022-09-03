@@ -10,7 +10,10 @@ public class Battle {
 	Scanner sc = new Scanner(System.in);
 	Random rd = new Random();
 	image im = new image();
-
+	User_Pokemon upo = new User_Pokemon();
+	Pokemons[] arrpo = upo.getPokemonsArray();
+	
+	
 	public Battle() {
 
 	}
@@ -20,7 +23,13 @@ public class Battle {
 		System.out.print("[1]싸운다  [2]도망간다");
 		int menu = sc.nextInt();
 		if (menu == 1) {
-
+			
+			String name1 =arrpo[arrpo.length-1].getPokemon_Nmae();
+			int skill11 = arrpo[arrpo.length-1].getBasic_attack();
+			int skill12 = arrpo[arrpo.length-1].getSkill_attack();
+			
+			String name2 = arrpo[random(arrpo.)]
+			
 			// 포켓몬 1 이미지
 			// vs 이미지
 			// 포켓몬 2 이미지
@@ -31,10 +40,7 @@ public class Battle {
 //					im.("꼬부기");
 //		} 
 //	
-			User_Pokemon up = new User_Pokemon();
-			Pokemons[] thisp = up.getPokemonsArray();
-			thisp[1].getPokemon_type();
-
+			
 			int tempdamage1; // 포켓몬 1 스킬1 데미지
 			int tempdamage11; // 포켓몬 1 스킬2 데미지
 
@@ -116,5 +122,15 @@ public class Battle {
 			}
 		}
 	}
-
+	
+	public void status() {
+		System.out.println(arrpo[arrpo.length-1].getPokemon_Nmae()+
+				arrpo[arrpo.length-1].getPokemon_type()+
+				arrpo[arrpo.length-1].getPokemonSkillName()+
+				arrpo[arrpo.length-1].getLevel()+
+				arrpo[arrpo.length-1].getMax_hp()+
+				arrpo[arrpo.length-1].getHp()+
+				arrpo[arrpo.length-1].getExp());
+	}
+	
 }
