@@ -1,27 +1,20 @@
 package controller;
-
 import java.util.Random;
 import java.util.Scanner;
-
 import model.Pokemons;
 import model.User_Pokemon;
-
 public class Battle {
 	Scanner sc = new Scanner(System.in);
 	Random rd = new Random();
 	image im = new image();
 	User_Pokemon upo = new User_Pokemon();
 	Pokemons[] arrpo = upo.getPokemonsArray();
-
-	public Battle(Pokemons[] arr) {
-		arrpo = arr;
+	public Battle(Pokemons[] first_pokemon) {
 	}
-
 	public void vs() {
 		System.out.print("[1]싸운다  [2]도망간다");
 		int menu = sc.nextInt();
 		if (menu == 1) {
-
 			String name1 = arrpo[arrpo.length - 1].getPokemon_Nmae(); // 유저 포켓몬 정보
 			int skill11 = arrpo[arrpo.length - 1].getBasic_attack();
 			int skill12 = arrpo[arrpo.length - 1].getSkill_attack();
@@ -45,7 +38,6 @@ public class Battle {
 			int skill21 = arrpo[ran].getBasic_attack(); // 야생 포켓몬 기본데미지
 			int skill22 = arrpo[ran].getSkill_attack(); // 야생 포켓몬 스킬데미지
 			int hp2 = arrpo[ran].getHp();
-
 			// 포켓몬 1 이미지
 			// vs 이미지
 			// 포켓몬 2 이미지
@@ -53,10 +45,8 @@ public class Battle {
 			im.show(name1);
 			im.show("vs");
 			im.show(name2);
-
 			String temptype1 = arrpo[arrpo.length - 1].getPokemon_type();
 			String temptype2 = arrpo[ran].getPokemon_type();
-
 			if (temptype1.equals("물")) {
 				if (temptype2.equals("물")) {
 				} else if (temptype2.equals("불")) {
@@ -85,7 +75,6 @@ public class Battle {
 					// tempdagame2 = *0.8
 				} else if (temptype2.equals("불")) {
 				} else if (temptype2.equals("풀")) {
-
 					skill11 *= 1.2;
 					skill12 *= 1.2;
 					skill21 *= 0.8;
@@ -100,7 +89,6 @@ public class Battle {
 					skill12 *= 1.2;
 					skill21 *= 0.8;
 					skill22 *= 0.8;
-
 					// 스킬데미지 tempdamage1 = *1.2
 					// tempdagame2 = *0.8
 				} else if (temptype2.equals("불")) {
@@ -146,7 +134,6 @@ public class Battle {
 					}
 					// 포켓몬2 의 hp - ( 포켓몬 1 임시 스킬데미지 )
 					count1++;
-
 				} else if (menu1 == 3) {
 					System.out.println("도망간다");
 					break;
@@ -186,11 +173,9 @@ public class Battle {
 			}
 		}
 	}
-
 	public void skillname(int a) {
 		System.out.println(arrpo[a].getPokemonSkillName() + "!!!");
 	}
-
 	public void win(int hp) {
 		int exp = arrpo[arrpo.length - 1].getExp();
 		int level = arrpo[arrpo.length - 1].getLevel();
@@ -200,12 +185,10 @@ public class Battle {
 		}
 		arrpo[arrpo.length - 1].setHp(hp);
 	}
-
 	public void lose() {
 		arrpo[arrpo.length - 1].setExp(0);
 		arrpo[arrpo.length - 1].setHp(0);
 	}
-
 	public void status() {
 		String na = arrpo[arrpo.length-1].getPokemon_Nmae();
 		im.show(na);

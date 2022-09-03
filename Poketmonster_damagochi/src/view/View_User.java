@@ -1,40 +1,31 @@
 package view;
-
 import java.util.Scanner;
-
 import controller.Battle;
 import controller.Controller_DAO;
 import model.Pokemons;
 import model.User_Pokemon;
 import model.User_VO;
 import model.story;
-
 public class View_User {
-
 	public static void main(String[] args) {
 		
 		User_Pokemon up = new User_Pokemon();
-		Pokemons[] pokemon = up.getPokemonsArray();
-		Battle battle = new Battle(pokemon);
+		Pokemons[] first_pokemon = up.getPokemonsArray();
+		Battle battle = new Battle(first_pokemon);
 		Scanner sc = new Scanner(System.in);
-
 		Controller_DAO dao = new Controller_DAO();
 		// 유저 가입, 로그인에 따른 포켓몬 생성
 		User_Pokemon userPokemon = null;
 		// 유저 가입, 로그인에 따른 정보 초기화 차이
 		story s = new story();
 		User_VO userVO = null;
-
 		// 메인 타이틀
 		 s.title();
-
 		// 회원가입 , 로그인
-
 		while (true) {
 			System.out.print("[1]회원가입  [2]로그인 >> ");
 			int menu = sc.nextInt();
 			System.out.println();
-
 			if (menu == 1) {
 				int choose;
 				s.opening();
@@ -46,17 +37,16 @@ public class View_User {
 				String pw = sc.next();
 				System.out.print("nick : ");
 				String nick = sc.next();
-
 				int cnt = dao.join(id, pw, nick);
 				if (cnt > 0) {
 					System.out.println("등록 성공");
 					System.out.println("=======================");
 					System.out.println();
 					userVO = new User_VO(id, pw, nick);
-//				포켓몬 선택 스토리 
+//				포켓몬 선택 스토리
 					choose = s.choose();
 					// 선택한 포켓몬 번호를 포켓몬 배열 마지막에 저장
-					pokemon[pokemon.length -1] = pokemon[choose-1];
+					first_pokemon[first_pokemon.length -1] = first_pokemon[choose-1];
 //				
 				} else {
 					System.out.println("등록 실패");
@@ -66,7 +56,6 @@ public class View_User {
 				System.out.println();
 				
 				break;
-
 			} else if (menu == 2) {
 				// 로그인 기능 연결
 				System.out.print("ID : ");
@@ -98,6 +87,7 @@ public class View_User {
 			System.out.print("사냥터로 이동합니다.");
 			System.out.println();
 			s.field();
+			battle.vs();
 //			 야생 포켓몬 출현
 		} else if (move == 2) {
 			while (true) {
@@ -139,6 +129,5 @@ public class View_User {
 			System.out.println();
 			System.out.print("잘못 입력하셨습니다!!");
 		}
-
 	}
 }
