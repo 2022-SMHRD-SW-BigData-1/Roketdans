@@ -19,18 +19,14 @@ public class Pokemons {
 	final int min_level = 1;
 	// 레벨 비례 경험치
 	int exp;
-	int max_exp = level*10;
-	int min_exp = 0;
 	// 레벨 비례 포켓몬 체력
 	int hp;
 	int max_hp = level*10+(rd.nextInt(10)+1);
-	int min_hp = 0;
 	// 레벨 비례 기본 공격력, 스킬 공격력
 	int basic_attack = level*2;
 	int skill_attack = basic_attack * 2 + (rd.nextInt(10)+1);
-	
-	//1,2 차 진화
-	int evolution; // => 기본 값 : 1       1차 진화 값 : 2         2차 진화 값 :  3
+	// 타입 
+	String pokemon_type;
 	
 	public int getSelect_number() {
 		return select_number = 0;
@@ -40,20 +36,22 @@ public class Pokemons {
 	int select_number;
 	
 	//기본 포켓몬 생성자
-	public Pokemons(String pokemonName, String skillName) {
+	public Pokemons(String pokemonName, String skillName, String type_name) {
 		this.pokemon_Nmae = pokemonName;
 		this.pokemonSkillName = skillName;
+		this.pokemon_type = type_name;
 		this.level = 1;
-		this.exp = this.min_exp;
+		this.exp =0;
 		this.hp = this.max_hp;
 	}
 	
 	//야생 포켓몬 생성자
-		public Pokemons(String pokemonName , String skillName,String rando) {
+		public Pokemons(String pokemonName , String skillName,String type_name, String rando) {
 			this.pokemon_Nmae = pokemonName;
 			this.pokemonSkillName = skillName;
+			this.pokemon_type = type_name;
 			this.level = level;
-			this.exp = this.min_exp;
+			this.exp = 0;
 			this.hp = this.max_hp;
 		}
 		
@@ -108,13 +106,6 @@ public class Pokemons {
 			return exp;
 		}
 
-		public int getMax_exp() {
-			return max_exp;
-		}
-
-		public int getMin_exp() {
-			return min_exp;
-		}
 
 		public int getHp() {
 			return hp;
@@ -124,9 +115,6 @@ public class Pokemons {
 			return max_hp;
 		}
 
-		public int getMin_hp() {
-			return min_hp;
-		}
 
 		public int getBasic_attack() {
 			return basic_attack;
@@ -136,9 +124,6 @@ public class Pokemons {
 			return skill_attack;
 		}
 
-		public int getEvolution() {
-			return evolution;
-		}
 	
 	
 	
