@@ -55,4 +55,14 @@ public class User_Pokemon {
 
 	}
 
+	public Pokemons[] getPokemonsArray() {
+		return pokemonsArray;
+	}
+
+	public void setPokemonsArray(Pokemons[] pokemonsArray) {
+		this.pokemonsArray = pokemonsArray;
+	}
+
+	
+
 }
