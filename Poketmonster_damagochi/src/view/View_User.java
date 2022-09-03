@@ -58,8 +58,8 @@ public class View_User {
 					System.out.println();
 				}
 				System.out.println();
-//				userPokemon = new User_Pokemon(choose);
 				userVO = new User_VO(id, pw, nick);
+//				userPokemon = new User_Pokemon(choose);
 				break;
 
 			} else if (menu == 2) {
@@ -70,12 +70,14 @@ public class View_User {
 				String pw = sc.next();
 				boolean res = dao.login(id, pw);
 				if (res == true) {
+					// call_Pokemon 메소드 사용시 포켓몬 담긴 배열 마지막에 유저의 포켓몬 저장
+					userVO = new User_VO(id, pw);
+					dao.call_Pokemon(userVO.getId());
 					System.out.println("로그인 성공");
 				} else {
 					System.out.println("로그인 실패");
 				}
-				userPokemon = new User_Pokemon(id, pw);
-				userVO = new User_VO(id, pw);
+				
 				break;
 			}
 		}
@@ -126,7 +128,7 @@ public class View_User {
 			System.out.print("현재까지 플레이 내역을 저장합니다.");
 		} else if (move == 6) {
 //			매개값으로 유저 id를 받아 포켓몬 정보 확인하기
-			
+			dao.save(userVO.getId()); // 해당 유저의 아이디를 받아 아이디로 찾아 유저 포켓몬 정보 최신화
 			System.out.println();
 			System.out.print("게임을 종료합니다.");
 		} else {
