@@ -121,9 +121,11 @@ public class Battle {
 				int menu1 = sc.nextInt();
 				if (menu1 == 1) {
 					hp2 -= skill11;
+					System.out.println(name1 + "의피 : " + hp1);
+					System.out.println(name2 + "의피 : " + hp2);
 					if (hp2 < 0) {
 						im.show("승리");
-						win();
+						win(hp1);
 						break;
 					}
 					// 포켓몬2 의 hp - ( 포켓몬 1 임시 스킬데미지 )
@@ -134,9 +136,12 @@ public class Battle {
 						continue;
 					}
 					hp2 -= skill12;
+					skillname(arrpo.length - 1);
+					System.out.println(name1 + "의피 : " + hp1);
+					System.out.println(name2 + "의피 : " + hp2);
 					if (hp2 < 0) {
 						im.show("승리");
-						win();
+						win(hp1);
 						break;
 					}
 					// 포켓몬2 의 hp - ( 포켓몬 1 임시 스킬데미지 )
@@ -150,6 +155,8 @@ public class Battle {
 					menu1 = rd.nextInt(2) + 1;
 					if (menu1 == 1) {
 						hp1 -= skill21;
+						System.out.println(name1 + "의피 : " + hp1);
+						System.out.println(name2 + "의피 : " + hp2);
 						if (hp1 < 0) {
 							im.show("패배");
 							lose();
@@ -164,35 +171,48 @@ public class Battle {
 						}
 						count2++;
 						hp1 -= skill22;
+						skillname(ran);
+						System.out.println(name1 + "의피 : " + hp1);
+						System.out.println(name2 + "의피 : " + hp2);
 						if (hp1 < 0) { // 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
 							im.show("패배"); // 포켓몬1의 hp 0되면 패배 !!(break)
 							lose();
 							break;
 						}
 					}
-					break;   // 야생포켓몬 턴 종료  
+					break; // 야생포켓몬 턴 종료
 				}
 			}
 		}
 	}
-	
-	public void win() {
-		int exp = arrpo[arrpo.length-1].getExp();
-		int level = arrpo[arrpo.length-1].getLevel();
-		if(exp >=2){
-			arrpo[arrpo.length-1].setLevel(level+1);
-			arrpo[arrpo.length-1].setExp(0);
-		}
+
+	public void skillname(int a) {
+		System.out.println(arrpo[a].getPokemonSkillName() + "!!!");
 	}
+
+	public void win(int hp) {
+		int exp = arrpo[arrpo.length - 1].getExp();
+		int level = arrpo[arrpo.length - 1].getLevel();
+		if (exp >= 2) {
+			arrpo[arrpo.length - 1].setLevel(level + 1);
+			arrpo[arrpo.length - 1].setExp(0);
+		}
+		arrpo[arrpo.length - 1].setHp(hp);
+	}
+
 	public void lose() {
-		arrpo[arrpo.length-1].setExp(0);
+		arrpo[arrpo.length - 1].setExp(0);
+		arrpo[arrpo.length - 1].setHp(0);
 	}
 
 	public void status() {
-		System.out.println(arrpo[arrpo.length - 1].getPokemon_Nmae() + arrpo[arrpo.length - 1].getPokemon_type()
-				+ arrpo[arrpo.length - 1].getPokemonSkillName() + arrpo[arrpo.length - 1].getLevel()
-				+ arrpo[arrpo.length - 1].getMax_hp() + arrpo[arrpo.length - 1].getHp()
-				+ arrpo[arrpo.length - 1].getExp());
+		System.out.println(arrpo[arrpo.length - 1].getPokemon_Nmae());
+		System.out.println(arrpo[arrpo.length - 1].getPokemon_type());
+		System.out.println(arrpo[arrpo.length - 1].getPokemonSkillName());
+		System.out.println(arrpo[arrpo.length - 1].getLevel());
+		System.out.println(arrpo[arrpo.length - 1].getMax_hp());
+		System.out.println(arrpo[arrpo.length - 1].getHp());
+		System.out.println(arrpo[arrpo.length - 1].getExp());
 	}
 
 }
