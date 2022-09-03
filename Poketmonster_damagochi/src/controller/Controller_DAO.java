@@ -102,24 +102,24 @@ public class Controller_DAO {
 		update_pk = pokemon;
 		try {
 			getCon();
-			String sql = "update poke set (skill_name, level_, max_hp, hp, exp)=(?,?,?,?,?) where id = ? ";
+			String sql = "update poke set poke_name = ?, skill_name =? , level_ = ?, max_hp = ?, hp = ?, exp = ? where id = ? ";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, update_pk[update_pk.length-1].getPokemonSkillName());
-			psmt.setInt(2, update_pk[update_pk.length-1].getLevel());
-			psmt.setInt(3, update_pk[update_pk.length-1].getMax_hp());
-			psmt.setInt(4, update_pk[update_pk.length-1].getHp());
-			psmt.setInt(5, update_pk[update_pk.length-1].getHp());
-			psmt.setInt(5, update_pk[update_pk.length-1].getExp());
-			psmt.setString(6, user_id);
-			
+			psmt.setString(1, update_pk[update_pk.length - 1].getPokemon_Nmae());
+			psmt.setString(2, update_pk[update_pk.length - 1].getPokemonSkillName());
+			psmt.setInt(3, update_pk[update_pk.length - 1].getLevel());
+			psmt.setInt(4, update_pk[update_pk.length - 1].getMax_hp());
+			psmt.setInt(5, update_pk[update_pk.length - 1].getHp());
+			psmt.setInt(6, update_pk[update_pk.length - 1].getExp());
+			psmt.setString(7, user_id);
+
 			int result = psmt.executeUpdate();
-			if(!(result>0)) {
+			if (!(result > 0)) {
 				System.out.println("삽입 실패");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 	
 	public void call_Pokemon(Pokemons[] pokemon ,String user_id) {
