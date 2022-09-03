@@ -1,11 +1,12 @@
 package view;
 
+
+
 import java.util.Scanner;
 
 import controller.Controller_DAO;
 import model.User_Pokemon;
 import model.User_VO;
-import model.Wild_pokemon;
 import model.story;
 
 public class View_User {
@@ -22,7 +23,7 @@ public class View_User {
 		// 유저 가입, 로그인에 따른 정보 초기화 차이
 		story s = new story();
 		User_VO userVO = null;
-		Wild_pokemon wildPokemon = null;
+		
 
 		// 메인 타이틀
 		 s.title();
@@ -94,7 +95,6 @@ public class View_User {
 			System.out.println();
 			s.field();
 //			 야생 포켓몬 출현
-			wildPokemon = new Wild_pokemon();
 		} else if (move == 2) {
 			while (true) {
 				System.out.println();

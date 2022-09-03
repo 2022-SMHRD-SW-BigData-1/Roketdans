@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.MemberVO;
 import model.Pokemons;
 import model.User_Pokemon;
 
