@@ -206,9 +206,10 @@ public class Battle {
 	}
 
 	public void status() {
-		System.out.println(arrpo[arrpo.length - 1].getPokemon_Nmae());
-		System.out.println(arrpo[arrpo.length - 1].getPokemon_type());
-		System.out.println(arrpo[arrpo.length - 1].getPokemonSkillName());
+
+		System.out.println("포켓몬 이름 : " + arrpo[arrpo.length - 1].getPokemon_Nmae());
+		System.out.println("타입 : " + arrpo[arrpo.length - 1].getPokemon_type());
+		System.out.println("스킬명 :" + arrpo[arrpo.length - 1].getPokemonSkillName());
 		System.out.println(arrpo[arrpo.length - 1].getLevel());
 		System.out.println(arrpo[arrpo.length - 1].getMax_hp());
 		System.out.println(arrpo[arrpo.length - 1].getHp());
