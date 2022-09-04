@@ -18,7 +18,9 @@ public class Pokemons {
 	final int max_level = 10; 
 	final int min_level = 1;
 	// 레벨 비례 경험치
-	int exp =0;
+	int exp;
+	int max_exp = 2;
+	int min_exp = 0;
 	// 레벨 비례 포켓몬 체력
 	int hp =0;
 	int max_hp = level*10+(rd.nextInt(10)+1);
