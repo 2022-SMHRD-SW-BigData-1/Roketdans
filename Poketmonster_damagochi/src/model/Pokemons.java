@@ -1,11 +1,11 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.Random;
 
-import oracle.net.aso.s;
+
 
 public class Pokemons {
+	
 	
 	Random rd = new Random();
 	//포켓몬 이름
@@ -13,49 +13,142 @@ public class Pokemons {
 	// 포켓몬 스킬이름
 	String pokemonSkillName;
 	// 레벨
-	int level;
+	int level =1;
 	// 고정 시작 레벨, 한계 레벨
 	final int max_level = 10; 
 	final int min_level = 1;
 	// 레벨 비례 경험치
+<<<<<<< HEAD
 	int exp;
 	int max_exp = 2;
 	int min_exp = 0;
+=======
+	int exp =0;
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-SW-BigData-1/Team_Rocket.git
 	// 레벨 비례 포켓몬 체력
-	int hp;
+	int hp =0;
 	int max_hp = level*10+(rd.nextInt(10)+1);
-	int min_hp = 0;
 	// 레벨 비례 기본 공격력, 스킬 공격력
 	int basic_attack = level*2;
 	int skill_attack = basic_attack * 2 + (rd.nextInt(10)+1);
-	
-	//1,2 차 진화
-	int evolution; // => 기본 값 : 1       1차 진화 값 : 2         2차 진화 값 :  3
+	// 타입 
+	String pokemon_type = null;
 	
 	public int getSelect_number() {
 		return select_number = 0;
 	}
 
 	// 사용자가 선택"한 포켓몬 넘버
-	int select_number;
+	int select_number= 0;
 	
 	//기본 포켓몬 생성자
-	public Pokemons(String pokemonName, String skillName) {
+	public Pokemons(String pokemonName, String skillName, String type_name) {
 		this.pokemon_Nmae = pokemonName;
 		this.pokemonSkillName = skillName;
+		this.pokemon_type = type_name;
 		this.level = 1;
-		this.exp = this.min_exp;
+		this.exp =0;
 		this.hp = this.max_hp;
 	}
 	
 	//야생 포켓몬 생성자
-		public Pokemons(String pokemonName , String skillName,String rando) {
+		public Pokemons(String pokemonName , String skillName,String type_name, String rando) {
 			this.pokemon_Nmae = pokemonName;
 			this.pokemonSkillName = skillName;
-			this.level = level;
-			this.exp = this.min_exp;
+			this.pokemon_type = type_name;
+			this.exp = 0;
 			this.hp = this.max_hp;
 		}
+		
+		
+		
+
+		public void setMax_hp(int max_hp) {
+			this.max_hp = max_hp;
+		}
+
+		public void setPokemon_Nmae(String pokemon_Nmae) {
+			this.pokemon_Nmae = pokemon_Nmae;
+		}
+
+		public void setPokemonSkillName(String pokemonSkillName) {
+			this.pokemonSkillName = pokemonSkillName;
+		}
+
+		public void setLevel(int level) {
+			this.level = level;
+		}
+
+		public void setExp(int exp) {
+			this.exp = exp;
+		}
+
+		public void setHp(int hp) {
+			this.hp = hp;
+		}
+
+		public void setBasic_attack(int basic_attack) {
+			this.basic_attack = basic_attack;
+		}
+
+		public void setSkill_attack(int skill_attack) {
+			this.skill_attack = skill_attack;
+		}
+
+		public Random getRd() {
+			return this.rd;
+		}
+
+		public String getPokemon_Nmae() {
+			return this.pokemon_Nmae;
+		}
+
+		public String getPokemonSkillName() {
+			return this.pokemonSkillName;
+		}
+
+		public int getLevel() {
+			return this.level;
+		}
+
+		public int getMax_level() {
+			return this.max_level;
+		}
+
+		public String getPokemon_type() {
+			return this.pokemon_type;
+		}
+
+		public void setPokemon_type(String pokemon_type) {
+			this.pokemon_type = pokemon_type;
+		}
+
+		public int getMin_level() {
+			return this.min_level;
+		}
+
+		public int getExp() {
+			return this.exp;
+		}
+
+
+		public int getHp() {
+			return this.hp;
+		}
+
+		public int getMax_hp() {
+			return this.max_hp;
+		}
+
+
+		public int getBasic_attack() {
+			return this.basic_attack;
+		}
+
+		public int getSkill_attack() {
+			return this.skill_attack;
+		}
+
 	
 	
 	
@@ -81,8 +174,5 @@ public class Pokemons {
 	
 	
 	
-	
-	
-//	ArrayList<Pokemons> pokemons = new ArrayList<Pokemons>();
 	
 }

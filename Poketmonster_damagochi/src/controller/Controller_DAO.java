@@ -5,7 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Pokemons;
+import model.User_Pokemon;
+
 public class Controller_DAO {
+	// 저장할 포켓몬 객체 선언
+	User_Pokemon up = new User_Pokemon();
+	Pokemons[] update_pk = null;
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
@@ -91,26 +97,73 @@ public class Controller_DAO {
 		return false;
 	}
 	
-	// 포켓몬 정보 저장le, i
-	public void save(int id, int now_hp, int now_levnt) {
-//		try {
-//			getCon();
-//			String sql = "update poke set (hp,level,exp)=(?,?,?) where id = ? ";
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setInt(1, now_exp);
-//			psmt.setInt(2, now_levle);
-//			psmt.setInt(3, now_exp);
-//			psmt.setInt(4, id);
-//			
-//			int result = psmt.executeUpdate();
-//			if(!(result>0)) {
-//				System.out.println("삽입 실패");
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+	// 포켓몬 정보 저장
+	public void save(Pokemons[] pokemon, String user_id) {
+		update_pk = pokemon;
+		try {
+			getCon();
+			String sql = "update poke set poke_name = ?, skill_name =? , level_ = ?, max_hp = ?, hp = ?, exp = ? where id = ? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, update_pk[update_pk.length - 1].getPokemon_Nmae());
+			psmt.setString(2, update_pk[update_pk.length - 1].getPokemonSkillName());
+			psmt.setInt(3, update_pk[update_pk.length - 1].getLevel());
+			psmt.setInt(4, update_pk[update_pk.length - 1].getMax_hp());
+			psmt.setInt(5, update_pk[update_pk.length - 1].getHp());
+			psmt.setInt(6, update_pk[update_pk.length - 1].getExp());
+			psmt.setString(7, user_id);
+
+			int result = psmt.executeUpdate();
+			if (!(result > 0)) {
+				System.out.println("삽입 실패");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public void call_Pokemon(Pokemons[] pokemon ,String user_id) {
+		update_pk = pokemon;
+		try {
+		getCon();
+		String sql = "select nick, skill_name, level_, max_hp, hp, exp from poke where = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, user_id);
+			// sql문에 나온 결과물 rs에 담기
+			rs = psmt.executeQuery();
+			
+			String pokemon_name = null;
+			String skill_name =null;
+			int level =0;
+			int max_hp= 0;
+			int hp =0 ;
+			int exp =0;
+			while (rs.next()) {
+				// 해당 결과 변수에 담기
+				pokemon_name = rs.getString(1);
+				skill_name = rs.getString(2);
+				level = rs.getInt(3);
+				max_hp  = rs.getInt(4);
+				hp = rs.getInt(5);
+				exp = rs.getInt(6);
+			}
+			// 로그인 시 해당 유저 포켓몬 정보 불러오기
+			update_pk[update_pk.length-1].setPokemon_Nmae(pokemon_name);
+			update_pk[update_pk.length-1].setPokemonSkillName(skill_name);;
+			update_pk[update_pk.length-1].setLevel(level);
+			update_pk[update_pk.length-1].setMax_hp(max_hp);
+			update_pk[update_pk.length-1].setHp(hp);
+			update_pk[update_pk.length-1].setExp(exp);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
+	
+	
 	
 
 	// 로그인 시 포켓몬 정보 꺼내기

@@ -1,7 +1,7 @@
 package model;
 
 public class User_VO {
-	private String id;
+	private String id;// User_VO userVO =  new User_vo()
 	private String pw;
 	private String nick;
 	
