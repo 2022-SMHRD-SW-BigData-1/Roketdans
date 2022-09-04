@@ -48,8 +48,8 @@ public class View_User {
 					userVO = new User_VO(id, pw, nick);
 //				포켓몬 선택 스토리
 					choose = s.choose();
-					dao.arrinsert(first_pokemon, choose);
-					dao.join_insert(first_pokemon, id);
+					battle.arrinsert(first_pokemon, choose);
+					dao.joininsert(first_pokemon, choose, id);
 					// 선택한 포켓몬 번호를 포켓몬 배열 마지막에 저장
 					//
 				} else {
@@ -117,7 +117,8 @@ public class View_User {
 			} else if (move == 4) {
 				System.out.println();
 				System.out.print("치료센터로 이동합니다.");
-			} else if (move == 5) {
+				battle.heal(first_pokemon);
+			} else if (move == 5) {  // 진화
 				int level = first_pokemon[first_pokemon.length - 1].getLevel();
 				if (level >= 5) {
 					String pk_name = first_pokemon[first_pokemon.length - 1].getPokemon_Nmae();

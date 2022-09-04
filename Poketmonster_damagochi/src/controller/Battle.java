@@ -12,8 +12,8 @@ public class Battle {
 	User_Pokemon up = new User_Pokemon();
 	Pokemons[] update_pk = null;
 
-	public Battle(Pokemons[] first_pokemon) {
-		update_pk = first_pokemon;
+	public Battle(Pokemons[] pokemon) {
+		update_pk = pokemon;
 	}
 
 	public void vs(Pokemons[] pokemon) {
