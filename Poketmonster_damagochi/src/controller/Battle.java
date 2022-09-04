@@ -9,51 +9,53 @@ public class Battle {
 	Scanner sc = new Scanner(System.in);
 	Random rd = new Random();
 	image im = new image();
-	User_Pokemon upo = new User_Pokemon();
-	Pokemons[] arrpo = upo.getPokemonsArray();
+	User_Pokemon up = new User_Pokemon();
+	Pokemons[] update_pk = null;
 
 	public Battle(Pokemons[] first_pokemon) {
+		update_pk = first_pokemon;
 	}
 
-	public void vs() {
+	public void vs(Pokemons[] pokemon) {
 		System.out.print("[1]싸운다  [2]도망간다");
 		int menu = sc.nextInt();
+		update_pk = pokemon;
 		if (menu == 1) {
-			String name1 = arrpo[arrpo.length - 1].getPokemon_Nmae(); // 유저 포켓몬 정보
-			int skill11 = arrpo[arrpo.length - 1].getBasic_attack();
-			int skill12 = arrpo[arrpo.length - 1].getSkill_attack();
-			String skillname1 = arrpo[arrpo.length - 1].getPokemonSkillName();
-			int hp1 = arrpo[arrpo.length - 1].getHp();
+			String name1 = update_pk[update_pk.length - 1].getPokemon_Nmae(); // 유저 포켓몬 정보
+			int skill11 = update_pk[update_pk.length - 1].getBasic_attack();
+			int skill12 = update_pk[update_pk.length - 1].getSkill_attack();
+			String skillname1 = update_pk[update_pk.length - 1].getPokemonSkillName();
+			int hp1 = update_pk[update_pk.length - 1].getHp();
 			int ran = 0;
 			while (true) {
-				ran = rd.nextInt(arrpo.length);
+				ran = rd.nextInt(update_pk.length);
 				if (ran == 1) {
 					continue;
 				} else if (ran == 2) {
 					continue;
 				} else if (ran == 0) {
 					continue;
-				} else if (ran == arrpo.length - 1) {
+				} else if (ran == update_pk.length - 1) {
 					continue;
 				} else {
 					break;
 				}
 			}
-			int temp = arrpo[arrpo.length-1].getLevel();
-			arrpo[ran].setLevel(rd.nextInt(3)+temp-1);
-			String name2 = arrpo[ran].getPokemon_Nmae(); // 야생 포켓몬
-			int skill21 = arrpo[ran].getBasic_attack(); // 야생 포켓몬 기본데미지
-			int skill22 = arrpo[ran].getSkill_attack(); // 야생 포켓몬 스킬데미지
-			int level2 = arrpo[ran].getMax_level(); // 야생 포켓몬 레벨
-			String skillname2 = arrpo[ran].getPokemonSkillName();
-			int hp2 = arrpo[ran].getHp();
+			int temp = update_pk[update_pk.length - 1].getLevel();
+			update_pk[ran].setLevel(rd.nextInt(3) + temp - 1);
+			String name2 = update_pk[ran].getPokemon_Nmae(); // 야생 포켓몬
+			int skill21 = update_pk[ran].getBasic_attack(); // 야생 포켓몬 기본데미지
+			int skill22 = update_pk[ran].getSkill_attack(); // 야생 포켓몬 스킬데미지
+			int level2 = update_pk[ran].getMax_level(); // 야생 포켓몬 레벨
+			String skillname2 = update_pk[ran].getPokemonSkillName();
+			int hp2 = update_pk[ran].getHp();
 
 			im.show(name1); // 이미지
 			im.show("vs");
 			im.show(name2);
-			System.out.println(name2+"의 LEVEL : "+level2);
-			String temptype1 = arrpo[arrpo.length - 1].getPokemon_type();
-			String temptype2 = arrpo[ran].getPokemon_type();
+			System.out.println(name2 + "의 LEVEL : " + level2);
+			String temptype1 = update_pk[update_pk.length - 1].getPokemon_type();
+			String temptype2 = update_pk[ran].getPokemon_type();
 			if (temptype1.equals("물")) {
 				if (temptype2.equals("물")) {
 				} else if (temptype2.equals("불")) {
@@ -123,7 +125,7 @@ public class Battle {
 					System.out.println("========================");
 					if (hp2 < 0) {
 						im.show("승리");
-						win(hp1);
+						win(update_pk, hp1);
 						break;
 					}
 					// 포켓몬2 의 hp - ( 포켓몬 1 임시 스킬데미지 )
@@ -141,7 +143,7 @@ public class Battle {
 					System.out.println("========================");
 					if (hp2 < 0) {
 						im.show("승리");
-						win(hp1);
+						win(update_pk, hp1);
 						break;
 					}
 					// 포켓몬2 의 hp - ( 포켓몬 1 임시 스킬데미지 )
@@ -161,7 +163,7 @@ public class Battle {
 						System.out.println("========================");
 						if (hp1 < 0) {
 							im.show("패배");
-							lose();
+							lose(update_pk);
 							break;
 						}
 						// 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
@@ -173,7 +175,7 @@ public class Battle {
 						}
 						count2++;
 						hp1 -= skill22;
-						skillname(ran);
+						skillname(pokemon, ran);
 						System.out.println("========================");
 						System.out.println(name2 + "의 " + skillname2);
 						System.out.println(name1 + "의피 : " + hp1);
@@ -181,7 +183,7 @@ public class Battle {
 						System.out.println("========================");
 						if (hp1 < 0) { // 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
 							im.show("패배"); // 포켓몬1의 hp 0되면 패배 !!(break)
-							lose();
+							lose(update_pk);
 							break;
 						}
 					}
@@ -192,58 +194,62 @@ public class Battle {
 		}
 	}
 
-
-	public void skillname(int a) {
-		System.out.println(arrpo[a].getPokemonSkillName() + "!!!");
+	public void skillname(Pokemons[] pokemon, int a) {
+		update_pk = pokemon;
+		System.out.println(update_pk[a].getPokemonSkillName() + "!!!");
 	}
 
-	public void win(int hp) {
-		int exp = arrpo[arrpo.length - 1].getExp();
-		int level = arrpo[arrpo.length - 1].getLevel();
-		arrpo[arrpo.length - 1].setExp(exp+1);
+	public void win(Pokemons[] pokemon, int hp) {
+		update_pk = pokemon;
+		int exp = update_pk[update_pk.length - 1].getExp();
+		int level = update_pk[update_pk.length - 1].getLevel();
+		update_pk[update_pk.length - 1].setExp(exp + 1);
 		if (exp >= 2) {
-			arrpo[arrpo.length - 1].setLevel(level + 1);
-			arrpo[arrpo.length - 1].setExp(0);
-			System.out.println("축하 합니다 !!  "+level+1+"달성 !!");
+			update_pk[update_pk.length - 1].setLevel(level + 1);
+			update_pk[update_pk.length - 1].setExp(0);
+			System.out.println("축하 합니다 !!  " + level + 1 + "달성 !!");
 		}
-		arrpo[arrpo.length - 1].setHp(hp);
+		update_pk[update_pk.length - 1].setHp(hp);
 	}
 
-	public void lose() {
-		arrpo[arrpo.length - 1].setExp(0);
-		arrpo[arrpo.length - 1].setHp(0);
+	public void lose(Pokemons[] pokemon) {
+		update_pk = pokemon;
+		update_pk[update_pk.length - 1].setExp(0);
+		update_pk[update_pk.length - 1].setHp(0);
 		System.out.println("패널티로 경험치가 초기화 됩니다.");
 	}
 
-	public void status() {
-		String na = arrpo[arrpo.length - 1].getPokemon_Nmae();
+	public void status(Pokemons[] pokemon) {
+		update_pk = pokemon;
+		String na = update_pk[update_pk.length - 1].getPokemon_Nmae();
 		im.show(na);
-		System.out.println("포켓몬 이름 : " + arrpo[arrpo.length - 1].getPokemon_Nmae());
-		System.out.println("타입 : " + arrpo[arrpo.length - 1].getPokemon_type());
-		System.out.println("스킬명 : " + arrpo[arrpo.length - 1].getPokemonSkillName());
-		System.out.println("LEVEL : " + arrpo[arrpo.length - 1].getLevel());
-		System.out.println("최대 체력 : " + arrpo[arrpo.length - 1].getMax_hp());
-		System.out.println("현재 체력 : " + arrpo[arrpo.length - 1].getHp());
-		System.out.println("EXP : " + arrpo[arrpo.length - 1].getExp());
+		System.out.println("포켓몬 이름 : " + update_pk[update_pk.length - 1].getPokemon_Nmae());
+		System.out.println("타입 : " + update_pk[update_pk.length - 1].getPokemon_type());
+		System.out.println("스킬명 : " + update_pk[update_pk.length - 1].getPokemonSkillName());
+		System.out.println("LEVEL : " + update_pk[update_pk.length - 1].getLevel());
+		System.out.println("최대 체력 : " + update_pk[update_pk.length - 1].getMax_hp());
+		System.out.println("현재 체력 : " + update_pk[update_pk.length - 1].getHp());
+		System.out.println("EXP : " + update_pk[update_pk.length - 1].getExp());
 	}
-	
-	public void heal() {
-		int temp = arrpo[arrpo.length-1].getHp();
-		int max = arrpo[arrpo.length-1].getMax_hp();
-		arrpo[arrpo.length-1].setHp(max);
-		System.out.println("============");
-		System.out.println(temp+" -----> " + max);
-		System.out.println("치료가 완료 되었습니다");
-		
-	}
-	
 
-	public void arrinsert(int s) {
+	public void heal(Pokemons[] pokemon) {
+		update_pk = pokemon;
+		int temp = update_pk[update_pk.length - 1].getHp();
+		int max = update_pk[update_pk.length - 1].getMax_hp();
+		update_pk[update_pk.length - 1].setHp(max);
+		System.out.println("============");
+		System.out.println(temp + " -----> " + max);
+		System.out.println("치료가 완료 되었습니다");
+
+	}
+
+	public void arrinsert(Pokemons[] pokemon,int s) {
+		update_pk = pokemon;
 		s -= 1;
-		String name = arrpo[s].getPokemon_Nmae();
-		String skillname = arrpo[s].getPokemonSkillName();
-		arrpo[arrpo.length - 1].setPokemon_Nmae(name);
-		arrpo[arrpo.length - 1].setPokemonSkillName(skillname);
+		String name = update_pk[s].getPokemon_Nmae();
+		String skillname = update_pk[s].getPokemonSkillName();
+		update_pk[update_pk.length - 1].setPokemon_Nmae(name);
+		update_pk[update_pk.length - 1].setPokemonSkillName(skillname);
 
 	}
 }

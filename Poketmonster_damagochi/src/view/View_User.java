@@ -49,7 +49,7 @@ public class View_User {
 					choose = s.choose();
 					// 선택한 포켓몬 번호를 포켓몬 배열 마지막에 저장
 					//
-					battle.arrinsert(choose);
+					battle.arrinsert(first_pokemon, choose);
 				} else {
 					System.out.println("등록 실패");
 					System.out.println("=======================");
@@ -89,10 +89,11 @@ public class View_User {
 				System.out.print("사냥터로 이동합니다.");
 				System.out.println();
 				s.field();
-				battle.vs();
+				battle.vs(first_pokemon);
 //			 야생 포켓몬 출현
 			} else if (move == 2) {
 				while (true) {
+					
 					System.out.println();
 					System.out.print("[1] 첫번째 체육관 [2] 두번째 체육관");
 					System.out.print("어떤 체육관에 도전하시겠습니까? : ");
@@ -113,11 +114,11 @@ public class View_User {
 			} else if (move == 3) {
 				System.out.println();
 				System.out.print("상태창을 출력합니다.");
-				battle.status();
+				battle.status(first_pokemon);
 			} else if (move == 4) {
 				System.out.println();
 				System.out.println("치료센터로 이동합니다.");
-				battle.heal();
+				battle.heal(first_pokemon);
 			} else if (move == 5) {
 				System.out.println();
 				System.out.println("현재까지 플레이 내역을 저장합니다.");
