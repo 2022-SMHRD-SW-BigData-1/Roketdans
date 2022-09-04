@@ -50,7 +50,6 @@ public class Battle {
 			String skillname2 = update_pk[ran].getPokemonSkillName();
 			int hp2 = update_pk[ran].getHp();
 
-			im.show(name1); // 이미지
 			im.show("vs");
 			im.show(name2);
 			System.out.println(name2 + "의 LEVEL : " + level2);
