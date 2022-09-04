@@ -107,13 +107,15 @@ public class View_User {
 					if (yn.equals("y")) {
 						System.out.println("\n");
 						if (first_pokemon[first_pokemon.length - 1].getLevel() >= 5) {
-							System.out.println();
+							System.out.println("\n");
 							s.gym1();
 							battle.vs(first_pokemon);
 							if (first_pokemon[first_pokemon.length - 1].getHp() > 0) {
+								System.out.println("\n");
 								s.roketdan();
 								battle.vs(first_pokemon);
 								if (first_pokemon[first_pokemon.length - 1].getHp() > 0) {
+									System.out.println("\n");
 									s.ending();
 									end++;
 								}
