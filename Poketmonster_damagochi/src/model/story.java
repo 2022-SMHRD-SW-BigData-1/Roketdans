@@ -199,8 +199,6 @@ public class story {
 		bgm.play("로켓단");
 		e.show("로켓단");
 		System.out.println("\n");
-		bgm.stop();
-		bgm.play("타자");
 		System.out.println("\n");
 		String[] roketdanText = { "나 : 뭐야? 뱃지가 사라졌어...", "뱃지도둑이 훔쳐 간거 같아 ㅠㅠ", "\t", "로켓단 : 뱃지 도둑이라고 말하신다면",
 				"대답해 드리는게 인지상정", "이 세계의 파괴를 막기 위해", "이 세계의 평화를 지키기 위해", "사랑과 진실 어둠을 뿌리고 다니는", "포켓몬의 감초 귀염둥이 악당",
@@ -219,7 +217,7 @@ public class story {
 		System.out.println("\n");
 		String[] endingText = { "오박사 : 오래간만이군!", "포켓몬 마스터가 되었다는 소문은 들었네", "정말 축하하네!!!", "힘들일은 없었나?", "\t",
 				"나 : 너무 재밌었습니다! 로켓단만 만나지 않았다면 말이죠", "\t", "오박사 : 뭐? 로켓단을 만났다고 그 악랄한 놈들", "그래도 뱃지를 뺏기지 않아서 정말 다행이군!",
-				"포켓몬 마스터가 된 소감은 어떤가?","\t","재밌는 여행이였습니다!!","\t","GAME OVER!!" };
+				"포켓몬 마스터가 된 소감은 어떤가?","\t","재밌는 여행이였습니다!!","\t" };
 		for (int i = 0; i < endingText.length; i++) {
 			slowPrint(endingText[i] + "\n", 100);
 			bgm.stop();
