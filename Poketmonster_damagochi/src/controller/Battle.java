@@ -20,7 +20,10 @@ public class Battle {
 	public void vs(Pokemons[] pokemon) {
 		Bgmplayer bgm = new Bgmplayer();
 		bgm.play("타격");
+		System.out.println("\n");
 		System.out.print("[1]싸운다  [2]도망간다");
+		System.out.println("\n");
+		System.out.print("입력해주세요 : ");
 		int menu = sc.nextInt();
 		update_pk = pokemon;
 		if (menu == 1) {
@@ -112,15 +115,20 @@ public class Battle {
 			int count2 = 0; // 포켓몬 2의 두번째 스킬 제한
 			while (true) {
 				// 포켓몬 2 hp - ( 그 포켓몬의 스킬 데미지 ) 불 물 풀
+				System.out.println("\n");
 				System.out.print("[1]몸통 박치기  [2]" + skillname1 + "  [3]도망간다");
+				System.out.println("\n");
+				System.out.print("입력해주세요 : ");
 				int menu1 = sc.nextInt();
 				if (menu1 == 1) {
 					hp2 -= skill11;
 					bgm.play("타격");
 					System.out.println("========================");
+					System.out.println("\n");
 					System.out.println(name1 + "몸통 박치기 !!!!");
 					System.out.println(name1 + "의피 : " + hp1);
 					System.out.println(name2 + "의피 : " + hp2);
+					System.out.println("\n");
 					System.out.println("========================");
 					if (hp2 < 0) {
 						im.show("승리");
@@ -137,9 +145,11 @@ public class Battle {
 					hp2 -= skill12;
 					bgm.play("타격");
 					System.out.println("========================");
+					System.out.println("\n");
 					System.out.println(name1 + "!!  " + skillname1 + "!!");
 					System.out.println(name1 + "의피 : " + hp1);
 					System.out.println(name2 + "의피 : " + hp2);
+					System.out.println("\n");
 					System.out.println("========================");
 					if (hp2 < 0) {
 						im.show("승리");
@@ -157,9 +167,11 @@ public class Battle {
 					if (menu1 == 1) {
 						hp1 -= skill21;
 						System.out.println("========================");
+						System.out.println("\n");
 						System.out.println(name2 + " 몸통 박치기");
 						System.out.println(name1 + "의피 : " + hp1);
 						System.out.println(name2 + "의피 : " + hp2);
+						System.out.println("\n");
 						System.out.println("========================");
 						if (hp1 < 0) {
 							im.show("패배");
@@ -176,9 +188,11 @@ public class Battle {
 						count2++;
 						hp1 -= skill22;
 						System.out.println("========================");
+						System.out.println("\n");
 						System.out.println(name2 + "의 " + skillname2);
 						System.out.println(name1 + "의피 : " + hp1);
 						System.out.println(name2 + "의피 : " + hp2);
+						System.out.println("\n");
 						System.out.println("========================");
 						if (hp1 < 0) { // 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
 							im.show("패배"); // 포켓몬1의 hp 0되면 패배 !!(break)
