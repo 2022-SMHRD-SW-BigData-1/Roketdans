@@ -46,7 +46,7 @@ public class View_User {
 					System.out.println("\n");
 					userVO = new User_VO(id, pw, nick);
 					choose = s.choose();
-					battle.arrinsert(choose); // 선택한 포켓몬 배열 저장
+					battle.arrinsert(first_pokemon, choose); // 선택한 포켓몬 배열 저장
 					s.Menu();
 					break;
 				} else {
