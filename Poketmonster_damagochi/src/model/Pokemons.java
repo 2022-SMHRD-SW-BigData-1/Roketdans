@@ -23,10 +23,10 @@ public class Pokemons {
 	int min_exp = 0;
 	// 레벨 비례 포켓몬 체력
 	int hp =0;
-	int max_hp = level*10+(rd.nextInt(10)+1);
+	int max_hp = level*10+(rd.nextInt(3)+1);
 	// 레벨 비례 기본 공격력, 스킬 공격력
 	int basic_attack = level*2;
-	int skill_attack = basic_attack * 2 + (rd.nextInt(10)+1);
+	int skill_attack = basic_attack * 2 + (rd.nextInt(3)+1);
 	// 타입 
 	String pokemon_type = null;
 	
