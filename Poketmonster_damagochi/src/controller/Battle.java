@@ -113,7 +113,7 @@ public class Battle {
 			int count2 = 0; // 포켓몬 2의 두번째 스킬 제한
 			while (true) {
 				// 포켓몬 2 hp - ( 그 포켓몬의 스킬 데미지 ) 불 물 풀
-				System.out.print("[1]몸통 박치기  [2]" + name1 + "  [3]도망간다");
+				System.out.print("[1]몸통 박치기  [2]" + skillname1 + "  [3]도망간다");
 				int menu1 = sc.nextInt();
 				if (menu1 == 1) {
 					hp2 -= skill11;
@@ -174,7 +174,6 @@ public class Battle {
 						}
 						count2++;
 						hp1 -= skill22;
-						skillname(pokemon, ran);
 						System.out.println("========================");
 						System.out.println(name2 + "의 " + skillname2);
 						System.out.println(name1 + "의피 : " + hp1);
