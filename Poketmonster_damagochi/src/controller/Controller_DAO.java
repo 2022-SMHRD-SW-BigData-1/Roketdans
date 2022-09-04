@@ -101,7 +101,10 @@ public class Controller_DAO {
 	// 포켓몬 정보 저장
 	public void save(Pokemons[] pokemon, String user_id) {
 		update_pk = pokemon;
+		Bgmplayer bgm = new Bgmplayer();
+		bgm.play("저장");
 		try {
+			
 			getCon();
 			String sql = "update poke set poke_name = ?, skill_name =? , level_ = ?, max_hp = ?, hp = ?, exp = ? where id = ? ";
 			psmt = conn.prepareStatement(sql);

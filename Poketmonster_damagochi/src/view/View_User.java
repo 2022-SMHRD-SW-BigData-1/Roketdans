@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 import controller.Battle;
+import controller.Bgmplayer;
 import controller.Controller_DAO;
 import controller.image;
 import model.Pokemons;
@@ -22,6 +23,7 @@ public class View_User {
 		// 유저 가입, 로그인에 따른 정보 초기화 차이
 		story s = new story();
 		User_VO userVO = null;
+		Bgmplayer bgm = new Bgmplayer();
 		// 메인 타이틀
 		s.title();
 		// 회원가입 , 로그인
@@ -143,6 +145,7 @@ public class View_User {
 						}
 					}
 					im.show(pk_name);
+					bgm.play("진화");
 
 				} else {
 					System.out.println("레벨 조건이 충족되지 않았습니다.");

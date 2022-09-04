@@ -11,12 +11,15 @@ public class Battle {
 	image im = new image();
 	User_Pokemon up = new User_Pokemon();
 	Pokemons[] update_pk = null;
+	
 
 	public Battle(Pokemons[] pokemon) {
 		update_pk = pokemon;
 	}
 
 	public void vs(Pokemons[] pokemon) {
+		Bgmplayer bgm = new Bgmplayer();
+		bgm.play("타격");
 		System.out.print("[1]싸운다  [2]도망간다");
 		int menu = sc.nextInt();
 		update_pk = pokemon;
@@ -28,7 +31,7 @@ public class Battle {
 			int hp1 = update_pk[update_pk.length - 1].getHp();
 			int ran = 0;
 			while (true) {
-				ran = rd.nextInt(update_pk.length-1);
+				ran = rd.nextInt(update_pk.length - 1);
 				if (ran == 1) {
 					continue;
 				} else if (ran == 2) {
@@ -67,8 +70,6 @@ public class Battle {
 					// 스킬데미지 tempdamage1 = *1.2
 					// tempdagame2 = *0.8
 				} else if (temptype2.equals("풀")) {
-					skill11 *= 0.8;
-					skill12 *= 0.8;
 					skill21 *= 1.2;
 					skill22 *= 1.2;
 					// 스킬데미지 tempdamage1 = *0.8
@@ -77,8 +78,6 @@ public class Battle {
 			}
 			if (temptype1.equals("불")) {
 				if (temptype2.equals("물")) {
-					skill11 *= 0.8;
-					skill12 *= 0.8;
 					skill21 *= 1.2;
 					skill22 *= 1.2;
 					// 스킬데미지 tempdamage1 = *0.8
@@ -102,8 +101,6 @@ public class Battle {
 					// 스킬데미지 tempdamage1 = *1.2
 					// tempdagame2 = *0.8
 				} else if (temptype2.equals("불")) {
-					skill11 *= 0.8;
-					skill12 *= 0.8;
 					skill21 *= 1.2;
 					skill22 *= 1.2;
 					// 스킬데미지 tempdamage1 = *0.8
@@ -119,6 +116,7 @@ public class Battle {
 				int menu1 = sc.nextInt();
 				if (menu1 == 1) {
 					hp2 -= skill11;
+					bgm.play("타격");
 					System.out.println("========================");
 					System.out.println(name1 + "몸통 박치기 !!!!");
 					System.out.println(name1 + "의피 : " + hp1);
@@ -137,6 +135,7 @@ public class Battle {
 						continue;
 					}
 					hp2 -= skill12;
+					bgm.play("타격");
 					System.out.println("========================");
 					System.out.println(name1 + "!!  " + skillname1 + "!!");
 					System.out.println(name1 + "의피 : " + hp1);
@@ -207,8 +206,9 @@ public class Battle {
 		int exp = update_pk[update_pk.length - 1].getExp();
 		int level = update_pk[update_pk.length - 1].getLevel();
 		update_pk[update_pk.length - 1].setExp(exp + 1);
-		if (exp >= 2) {
-			update_pk[update_pk.length - 1].setLevel(level + 4);
+		exp = update_pk[update_pk.length - 1].getExp();
+		if (exp >=1) {
+			update_pk[update_pk.length - 1].setLevel(level + 1);
 			update_pk[update_pk.length - 1].setExp(0);
 			System.out.println("축하 합니다 !!  " + level + 1 + "달성 !!");
 		}
@@ -216,6 +216,8 @@ public class Battle {
 	}
 
 	public void lose(Pokemons[] pokemon) {
+		Bgmplayer bgm = new Bgmplayer();
+		bgm.play("패배");
 		update_pk = pokemon;
 		update_pk[update_pk.length - 1].setExp(0);
 		update_pk[update_pk.length - 1].setHp(0);
@@ -234,8 +236,16 @@ public class Battle {
 		System.out.println("현재 체력 : " + update_pk[update_pk.length - 1].getHp());
 		System.out.println("EXP : " + update_pk[update_pk.length - 1].getExp());
 	}
+	public void endheal(Pokemons[] pokemon) {
+		update_pk = pokemon;
+		int temp = update_pk[update_pk.length - 1].getHp();
+		int max = update_pk[update_pk.length - 1].getMax_hp();
+		update_pk[update_pk.length - 1].setHp(max);
+		
+	}
 
 	public void heal(Pokemons[] pokemon) {
+		Bgmplayer bgm = new Bgmplayer();
 		update_pk = pokemon;
 		int temp = update_pk[update_pk.length - 1].getHp();
 		int max = update_pk[update_pk.length - 1].getMax_hp();
@@ -243,7 +253,7 @@ public class Battle {
 		System.out.println("============");
 		System.out.println(temp + " -----> " + max);
 		System.out.println("치료가 완료 되었습니다");
-
+		bgm.play("치료");
 	}
 
 	public void arrinsert(Pokemons[] pokemon, int s) {

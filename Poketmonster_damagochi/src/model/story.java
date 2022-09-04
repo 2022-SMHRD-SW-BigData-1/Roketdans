@@ -124,16 +124,22 @@ public class story {
 			System.out.print("포켓몬을 선택하세요 : ");
 			choice = sc.nextInt();
 			if (choice == 1) {
+				bgm.play("꼬부기");
 				i.show("꼬부기");
 				slowPrint("꼬부기 : 꼬북! 꼬북!", 100);
+				bgm.stop();
 				break;
 			} else if (choice == 2) {
+				bgm.play("파이리");
 				i.show("파이리");
 				slowPrint("파이리 : 푸와오왘!!", 100);
+				bgm.stop();
 				break;
 			} else if (choice == 3) {
+				bgm.play("이상해씨");
 				i.show("이상해씨");
 				slowPrint("이상해씨 : 이상! 이상!", 100);
+				bgm.stop();
 				break;
 			} else {
 				slowPrint("잘못 입력하셨습니다.", 100);
@@ -153,7 +159,11 @@ public class story {
 	// 사냥터
 
 	public static void field() {
+		Bgmplayer bgm = new Bgmplayer();
+		MP3Player mp3 = new MP3Player();
+		bgm.play("포켓몬발견");
 		slowPrint("야생 포켓몬이 출현합니다! 조심하세요!", 100);
+		bgm.stop();
 		System.out.println("\n");
 	}
 	// 첫번째 체육관 도전 멘트

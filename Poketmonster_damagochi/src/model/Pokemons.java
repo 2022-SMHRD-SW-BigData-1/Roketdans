@@ -44,7 +44,7 @@ public class Pokemons {
 		this.pokemon_type = type_name;
 		this.level = 1;
 		this.exp =0;
-		this.hp = this.max_hp;
+		this.hp = this.max_hp+3;
 	}
 	
 	//야생 포켓몬 생성자
