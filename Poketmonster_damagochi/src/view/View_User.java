@@ -93,17 +93,14 @@ public class View_User {
 //			 야생 포켓몬 출현
 			} else if (move == 2) {
 				while (true) {
-					System.out.println();
-					System.out.print("[1] 첫번째 체육관 [2] 두번째 체육관");
-					System.out.print("어떤 체육관에 도전하시겠습니까? : ");
-					int gymchoice = sc.nextInt();
-					if (gymchoice == 1) {
+					System.out.print("체육관에 도전하시겠습니까? : ");
+					String yn = sc.next();
+					if (yn.equals("y")) {
 						System.out.println();
 						s.gym1();
+						battle.vs(first_pokemon);
 						break;
-					} else if (gymchoice == 2) {
-						System.out.println();
-						s.gym2();
+					} else if (yn.equals("n")) {
 						break;
 					} else {
 						System.out.println();
@@ -118,14 +115,14 @@ public class View_User {
 				System.out.println();
 				System.out.print("치료센터로 이동합니다.");
 				battle.heal(first_pokemon);
-			} else if (move == 5) {  // 진화
+			} else if (move == 5) { // 진화
 				int level = first_pokemon[first_pokemon.length - 1].getLevel();
 				if (level >= 5) {
 					String pk_name = first_pokemon[first_pokemon.length - 1].getPokemon_Nmae();
 					for (int i = 0; i < first_pokemon.length - 1; i++) {
 						if (pk_name == first_pokemon[i].getPokemon_Nmae()) {
-							String name2 = first_pokemon[i + 21].getPokemon_Nmae();
-							String skill2 = first_pokemon[i + 21].getPokemonSkillName();
+							String name2 = first_pokemon[i + 12].getPokemon_Nmae();
+							String skill2 = first_pokemon[i + 12].getPokemonSkillName();
 							first_pokemon[first_pokemon.length - 1].setPokemon_Nmae(name2);
 							first_pokemon[first_pokemon.length - 1].setPokemonSkillName(skill2);
 						}

@@ -28,7 +28,7 @@ public class Battle {
 			int hp1 = update_pk[update_pk.length - 1].getHp();
 			int ran = 0;
 			while (true) {
-				ran = rd.nextInt(update_pk.length);
+				ran = rd.nextInt(update_pk.length-1);
 				if (ran == 1) {
 					continue;
 				} else if (ran == 2) {
@@ -52,6 +52,8 @@ public class Battle {
 
 			im.show("vs");
 			im.show(name2);
+			System.out.println();
+			System.out.println();
 			System.out.println(name2 + "의 LEVEL : " + level2);
 			String temptype1 = update_pk[update_pk.length - 1].getPokemon_type();
 			String temptype2 = update_pk[ran].getPokemon_type();
@@ -186,6 +188,9 @@ public class Battle {
 						}
 					}
 					break; // 야생포켓몬 턴 종료
+				}
+				if (hp1 < 0) {
+					break;
 				} //
 
 			}
@@ -241,7 +246,7 @@ public class Battle {
 
 	}
 
-	public void arrinsert(Pokemons[] pokemon,int s) {
+	public void arrinsert(Pokemons[] pokemon, int s) {
 		update_pk = pokemon;
 		s -= 1;
 		String name = update_pk[s].getPokemon_Nmae();
