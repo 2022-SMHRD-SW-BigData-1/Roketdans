@@ -213,25 +213,9 @@ public class story {
 		for (int i = 0; i < endingText.length; i++) {
 			slowPrint(endingText[i] + "\n", 10);
 			bgm.stop();
-		}
-		while (true) {
-			System.out.print("입력해주세요 : ");
-			String retry = sc.next();
-			if (retry.equals("y")) {
-				System.out.println("\n");
-				slowPrint("처음부터 다시 시작합니다.", 100);
-				break;
-				// 처음으로 돌아가는 기능 추가
-			} else if (retry.equals("n")) {
-				System.out.println("\n");
-				slowPrint("게임을 종료합니다.", 100);
-				break;
-			} else {
-				slowPrint("잘못 입력하셨습니다.", 100);
-				System.out.println("\n");
 			}
+		System.out.println("게임 종료");
 		}
-	}
 
 	public static void Menu() {
 

@@ -77,7 +77,11 @@ public class View_User {
 			}
 			break;
 		}
+		int end =0;
 		while (true) {
+			if(end==1) {
+				break;
+			}
 			System.out.print("===================== < 선택해주세요 > =====================");
 			System.out.println();
 			System.out.println();
@@ -96,10 +100,21 @@ public class View_User {
 					System.out.print("체육관에 도전하시겠습니까? : ");
 					String yn = sc.next();
 					if (yn.equals("y")) {
-						System.out.println();
-						s.gym1();
-						battle.vs(first_pokemon);
-						break;
+						if (first_pokemon[first_pokemon.length - 1].getLevel() >= 5) {
+							System.out.println();
+							s.gym1();
+							battle.vs(first_pokemon);
+							if (first_pokemon[first_pokemon.length - 1].getHp() > 0) {
+								s.roketdan();
+								battle.vs(first_pokemon);
+								if (first_pokemon[first_pokemon.length - 1].getHp() > 0) {
+									s.ending();
+									end++;
+								}
+								break;
+							}
+						}
+
 					} else if (yn.equals("n")) {
 						break;
 					} else {

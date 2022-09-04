@@ -208,7 +208,7 @@ public class Battle {
 		int level = update_pk[update_pk.length - 1].getLevel();
 		update_pk[update_pk.length - 1].setExp(exp + 1);
 		if (exp >= 2) {
-			update_pk[update_pk.length - 1].setLevel(level + 1);
+			update_pk[update_pk.length - 1].setLevel(level + 4);
 			update_pk[update_pk.length - 1].setExp(0);
 			System.out.println("축하 합니다 !!  " + level + 1 + "달성 !!");
 		}

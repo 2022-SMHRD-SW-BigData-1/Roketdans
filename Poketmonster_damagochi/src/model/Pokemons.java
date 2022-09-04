@@ -15,7 +15,7 @@ public class Pokemons {
 	// 레벨
 	int level =1;
 	// 고정 시작 레벨, 한계 레벨
-	final int max_level = 10; 
+	final int max_level = 5; 
 	final int min_level = 1;
 	// 레벨 비례 경험치
 	int exp;
