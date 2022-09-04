@@ -47,12 +47,12 @@ public class View_User {
 					userVO = new User_VO(id, pw, nick);
 					choose = s.choose();
 					battle.arrinsert(first_pokemon, choose); // 선택한 포켓몬 배열 저장
-					s.Menu();
 					break;
 				} else {
 					System.out.println("등록 실패");
 					System.out.println("=======================");
 					System.out.println("/n");
+					continue;
 				}
 			}
 		}while(true){ 
@@ -68,13 +68,75 @@ public class View_User {
 				dao.call_Pokemon(first_pokemon, userVO.getId());
 				System.out.println("로그인 성공");
 				System.out.println("\n");
-				s.Menu();
+				break;
 			} else {
 				System.out.println("로그인 실패");
 				System.out.println("\n");
+				continue;
 			}
 
 		}
 		}
+			System.out.print("===================== < 선택해주세요 > =====================");
+			System.out.println("\n");
+			System.out.println("[1]사냥터 [2]체육관도전 [3]상태창 확인 [4]치료센터 [5]세이브 [6]종료");
+			System.out.println("\n");
+			System.out.print("입력해주세요 : ");
+			int move = sc.nextInt();
+			if (move == 1) {
+				System.out.println("\n");
+				System.out.print("사냥터로 이동합니다.");
+				System.out.println("\n");
+				s.field();
+				// battle.vs();
+			} else if (move == 2) {
+				while (true) {
+					System.out.println();
+					System.out.print("[1] 첫번째 체육관 [2] 두번째 체육관");
+					System.out.print("어떤 체육관에 도전하시겠습니까? : ");
+					int gymchoice = sc.nextInt();
+					if (gymchoice == 1) {
+						System.out.println("\n");
+						s.gym1();
+						break;
+					} else if (gymchoice == 2) {
+						System.out.println("\n");
+						s.gym2();
+						break;
+					} else {
+						System.out.println("\n");
+						System.out.print("잘못 입력하셨습니다.");
+						System.out.println("\n");
+					}
+				}
+			} else if (move == 3) {
+				System.out.println("\n");
+				s.slowPrint("상태창을 출력합니다.", 10);
+				System.out.println("\n");
+				// 유저 네임 추가 ?
+//				System.out.println("포켓몬 : "+userPokemon.getPokemon_name()+" ");
+//				System.out.println("레벨 : "+userPokemon.getLevel()+" ");
+//				System.out.println("HP : "+userPokemon.getHp()+" ");
+//				System.out.println("EXP : "+userPokemon.getExp()+" ");
+			} else if (move == 4) {
+				System.out.println("\n");
+				System.out.print("치료센터로 이동합니다.");
+				// 치료 기능 추가
+			} else if (move == 5) {
+				System.out.println("\n");
+				System.out.print("현재까지 플레이 내역을 저장합니다.");
+			} else if (move == 6) {
+//				매개값으로 유저 id를 받아 포켓몬 정보 확인하기
+				// dao.save(first_pokemon ,userVO.getId()); // 해당 유저의 아이디를 받아 아이디로 찾아 유저 포켓몬 정보
+				// 최신화
+				System.out.println("\n");
+				System.out.print("게임을 종료합니다.");
+
+			} else {
+				System.out.println("\n");
+				System.out.print("잘못 입력하셨습니다!!");
+				System.out.println("\n");
+			}
+
+		}
 	}
-}
