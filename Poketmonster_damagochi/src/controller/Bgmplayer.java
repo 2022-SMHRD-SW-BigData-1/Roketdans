@@ -25,6 +25,7 @@ public class Bgmplayer {
 		bgmlist.add(new Bgm("엔딩", "C://Users/smhrd/Desktop/Bgm/엔딩노래.mp3"));
 		bgmlist.add(new Bgm("패배", "C://Users/smhrd/Desktop/Bgm/패배.mp3"));
 		bgmlist.add(new Bgm("로켓단", "C://Users/smhrd/Desktop/Bgm/로켓단등장음.mp3"));
+		bgmlist.add(new Bgm("타자", "C://Users/smhrd/Desktop/Bgm/타자.mp3"));
 	
 	
 	}
@@ -40,6 +41,10 @@ public class Bgmplayer {
 			}
 		}
 	}
+	public void stop() {
+		if ( mp3.isPlaying()) {
+			mp3.stop();}
+		}
+		
+	}
 
-
-}
