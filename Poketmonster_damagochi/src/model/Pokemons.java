@@ -18,13 +18,9 @@ public class Pokemons {
 	final int max_level = 10; 
 	final int min_level = 1;
 	// 레벨 비례 경험치
-<<<<<<< HEAD
 	int exp;
 	int max_exp = 2;
 	int min_exp = 0;
-=======
-	int exp =0;
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-SW-BigData-1/Team_Rocket.git
 	// 레벨 비례 포켓몬 체력
 	int hp =0;
 	int max_hp = level*10+(rd.nextInt(10)+1);
