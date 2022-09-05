@@ -112,10 +112,12 @@ public class View_User {
 					if (yn.equals("y")) {
 						System.out.println("\n");
 						if (first_pokemon[first_pokemon.length - 1].getLevel() >= 5) {
-							System.out.println("레벨 조건이 충족되지 않았습니다.");
 							System.out.println("\n");
 							s.gym1();
 							battle.vs(first_pokemon);
+							s.gym1end();
+						}else if(first_pokemon[first_pokemon.length - 1].getLevel() < 5) {
+							System.out.println("레벨 조건이 충족되지 않았습니다.");
 							if (first_pokemon[first_pokemon.length - 1].getHp() > 0) {
 								System.out.println("\n");
 								s.roketdan();
