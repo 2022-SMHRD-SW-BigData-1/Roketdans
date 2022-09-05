@@ -141,6 +141,7 @@ public class Battle {
 					bgm.stop();
 					if (hp2 <= 0) {
 						im.show("승리");
+						System.out.println("\n");
 						win(update_pk, hp1);
 						break;
 					}
@@ -177,8 +178,7 @@ public class Battle {
 				while (true) {
 					menu1 = rd.nextInt(2) + 1;
 					if (menu1 == 1) {
-						pause();
-						pause();
+						System.out.println("\n");
 						System.out.println("========================");
 						System.out.println("\n");
 						System.out.println(name2 + " 몸통 박치기");
@@ -190,6 +190,7 @@ public class Battle {
 						System.out.println("========================");
 						if (hp1 <= 0) {
 							im.show("패배");
+							System.out.println("\n");
 							lose(update_pk);
 							break;
 						}
@@ -197,12 +198,10 @@ public class Battle {
 						// 포켓몬 1의 hp 0되면 패배 !!(break)
 					} else if (menu1 == 2) {
 						if (count2 >= 1) {
-							System.out.println("스킬을 사용할수 없습니다");
 							continue;
 						}
 						count2++;
-						pause();
-						pause();
+						System.out.println("\n");
 						System.out.println("========================");
 						System.out.println("\n");
 						System.out.println(name2 + "의 " + skillname2);
@@ -250,7 +249,7 @@ public class Battle {
 			update_pk[update_pk.length - 1].setSkill_attack(level*2);
 			update_pk[update_pk.length - 1].setExp(0);
 			int lev = update_pk[update_pk.length - 1].getLevel();
-			System.out.println("축하 합니다 !!  " + lev + "달성 !!");}
+			System.out.println("축하 합니다 !!  " +"레벨 : "+ lev + "달성 !!");}
 		}
 		update_pk[update_pk.length - 1].setHp(hp);
 	}

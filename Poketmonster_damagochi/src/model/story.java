@@ -112,6 +112,7 @@ public class story {
 		int choice;
 		e.show("오박사");
 		bgm.play("타자");
+		System.out.println("\n");
 		String[] chooseText = { "오박사 : 포켓몬 마스터가 되는 첫걸음은", "파트너 포켓몬을 선택하는 것이다!", "\t", "모험을 시작하려면 함께 할 포켓몬이 있어야하지 않겠나?",
 				"내가 여기 3마리의 포켓몬을 준비했으니 골라보게!!", "\t" };
 		for (int i = 0; i < chooseText.length; i++) {
@@ -155,6 +156,7 @@ public class story {
 		slowPrint("오박사 : 좋은 포켓몬을 선택했군! 그럼 바로 모험을 떠나게!", 100);
 		System.out.println("\n");
 		System.out.print("태초마을로 이동합니다.");
+		System.out.println("\n");
 		slowPrint("태초마을에 오신것을 환영합니다!", 100);
 		System.out.println("\n");
 		return choice;
@@ -166,7 +168,6 @@ public class story {
 		
 		Bgmplayer bgm = new Bgmplayer();
 		MP3Player mp3 = new MP3Player();
-		System.out.println("\n");
 //		bgm.play("포켓몬발견");
 		slowPrint("야생 포켓몬이 출현합니다! 조심하세요!", 100);
 		System.out.println("\n");
@@ -205,15 +206,32 @@ public class story {
 		e.show("로켓단");
 		bgm.play("로켓단");
 		System.out.println("\n");
-		String[] roketdanText = { "나 : 뭐야? 뱃지가 사라졌어...", "뱃지도둑이 훔쳐 간거 같아 ㅠㅠ", "\t", "로켓단 : 뱃지 도둑이라고 말하신다면",
-				"대답해 드리는게 인지상정","\t", "이 세계의 파괴를 막기 위해", "이 세계의 평화를 지키기 위해","\t", "사랑과 진실 어둠을 뿌리고 다니는", "포켓몬의 감초 귀염둥이 악당",
-				"\t","나는 지은!!", "\t","나는 민진!!", "\t","나는 정민 이다옹~" };
-		for (int i = 0; i < roketdanText.length; i++) {
-			slowPrint(roketdanText[i] + "\n", 100);
-		}
+		slowPrint("나 : 뭐야? 뱃지가 사라졌어...",100);
+		slowPrint("뱃지도둑이 훔쳐 간거 같아 ㅠㅠ",100); 
+		System.out.println("\n");
+		e.show("로켓단로고");
+		slowPrint("로켓단 : 뱃지 도둑이라고 말하신다면",100);
+		System.out.println("\n");
+		slowPrint("대답해 드리는게 인지상정",100);
+		System.out.println("\n");
+		slowPrint("이 세계의 파괴를 막기 위해",100);
+		System.out.println("\n");
+		slowPrint("이 세계의 평화를 지키기 위해",100);
+		System.out.println("\n");
+		slowPrint("사랑과 진실 어둠을 뿌리고 다니는",100);
+		System.out.println("\n");
+		slowPrint("포켓몬의 감초 귀염둥이 악당",100);
+		System.out.println("\n");
+		e.show("로사");
+		slowPrint("나는 지은!!",100);
+		System.out.println("\n");
+		e.show("로이");
+		slowPrint("나는 민진!!",100);
+		System.out.println("\n");
+		e.show("냐옹");
+		slowPrint("나는 정민 이다옹~",100);
 		bgm.stop();
-	}
-
+		}
 	public static void ending() {
 		Scanner sc = new Scanner(System.in);
 		Bgmplayer bgm = new Bgmplayer();
@@ -222,6 +240,7 @@ public class story {
 		bgm.play("타자");
 		System.out.println("\n");
 		e.show("오박사");
+		System.out.println("\n");
 		String[] endingText = { "오박사 : 오래간만이군!", "포켓몬 마스터가 되었다는 소문은 들었네", "정말 축하하네!!!", "힘들일은 없었나?", "\t",
 				"나 : 너무 재밌었습니다! 로켓단만 만나지 않았다면 말이죠", "\t", "오박사 : 뭐? 로켓단을 만났다고 그 악랄한 놈들", "그래도 뱃지를 뺏기지 않아서 정말 다행이군!",
 				"다음에 기회가 있으면 또 보세 잘지내게!"};
@@ -229,6 +248,13 @@ public class story {
 			slowPrint(endingText[i] + "\n", 100);
 			bgm.stop();
 			}
-		System.out.println("게임 종료");
+		System.out.println("\n");
+		slowPrint(".___________. __    __   _______     _______ .__   __.  _______  \r\n"
+				+ "|           ||  |  |  | |   ____|   |   ____||  \\ |  | |       \\ \r\n"
+				+ "`---|  |----`|  |__|  | |  |__      |  |__   |   \\|  | |  .--.  |\r\n"
+				+ "    |  |     |   __   | |   __|     |   __|  |  . `  | |  |  |  |\r\n"
+				+ "    |  |     |  |  |  | |  |____    |  |____ |  |\\   | |  '--'  |\r\n"
+				+ "    |__|     |__|  |__| |_______|   |_______||__| \\__| |_______/ \r\n"
+				+ "                                                                 ",100);
 		}
 	}
