@@ -158,7 +158,7 @@ public class Controller_DAO {
 		update_pk = pokemon;
 		try {
 			getCon();
-			String sql = "select nick, skill_name, level_,types, max_hp, hp, exp from poke where = ?";
+			String sql = "select poke_name, skill_name, level_,types, max_hp, hp, exp from poke where id = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, user_id);
 			// sql문에 나온 결과물 rs에 담기
