@@ -1,5 +1,6 @@
 package view;
 
+import java.io.IOException;
 import java.util.Scanner;
 import controller.Battle;
 import controller.Bgmplayer;
@@ -87,6 +88,7 @@ public class View_User {
 		}
 		int end = 0;
 		while (true) {
+			bgm.stop();
 			if (end == 1) {
 				break;
 			}
@@ -101,7 +103,7 @@ public class View_User {
 				System.out.print("사냥터로 이동합니다.");
 				System.out.println("\n");
 				s.field();
-				bgm.play("포켓몬출현");
+				bgm.play("포켓몬발견");
 				battle.vs(first_pokemon);
 				bgm.stop();
 //			 야생 포켓몬 출현
@@ -159,18 +161,10 @@ public class View_User {
 				battle.heal(first_pokemon);
 			} else if (move == 5) { // 진화
 				int level = first_pokemon[first_pokemon.length - 1].getLevel();
+				bgm.play("진화");
 				if (level >= 5) {
-					String pk_name = first_pokemon[first_pokemon.length - 1].getPokemon_Nmae();
-					for (int i = 0; i < first_pokemon.length - 1; i++) {
-						if (pk_name == first_pokemon[i].getPokemon_Nmae()) {
-							String name2 = first_pokemon[i + 12].getPokemon_Nmae();
-							String skill2 = first_pokemon[i + 12].getPokemonSkillName();
-							first_pokemon[first_pokemon.length - 1].setPokemon_Nmae(name2);
-							first_pokemon[first_pokemon.length - 1].setPokemonSkillName(skill2);
-						}
-					}
-					im.show(pk_name);
-					bgm.play("진화");
+					poke_up(first_pokemon, im);
+					
 
 				} else {
 					System.out.println("레벨 조건이 충족되지 않았습니다.");
@@ -191,6 +185,32 @@ public class View_User {
 				System.out.println("\n");
 				System.out.print("잘못 입력하셨습니다!!");
 			}
+		}
+	}
+
+
+	private static void poke_up(Pokemons[] first_pokemon, image im) {
+		String pk_name = first_pokemon[first_pokemon.length - 1].getPokemon_Nmae();
+		for (int i = 0; i < first_pokemon.length - 1; i++) {
+			if (pk_name == first_pokemon[i].getPokemon_Nmae()) {
+				String name2 = first_pokemon[i + 12].getPokemon_Nmae();
+				String skill2 = first_pokemon[i + 12].getPokemonSkillName();
+				first_pokemon[first_pokemon.length - 1].setPokemon_Nmae(name2);
+				first_pokemon[first_pokemon.length - 1].setPokemonSkillName(skill2);
+			}
+		}
+		System.out.println(pk_name + " : 으앗! 몸이 이상..해....");
+		pause();
+		pause();
+		im.show(pk_name);
+		System.out.println(first_pokemon[first_pokemon.length - 1].getPokemon_Nmae()+"!!!!!");
+	}
+	
+	
+	private static void pause() {
+		try {
+			System.in.read();
+		} catch (IOException e) {
 		}
 	}
 }
