@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 import model.Pokemons;
@@ -132,7 +133,7 @@ public class Battle {
 					System.out.println(" -- > "+hp2);
 					System.out.println("\n");
 					System.out.println("========================");
-					if (hp2 < 0) {
+					if (hp2 <= 0) {
 						im.show("승리");
 						win(update_pk, hp1);
 						break;
@@ -155,7 +156,7 @@ public class Battle {
 					System.out.println(" -- > "+hp2);
 					System.out.println("\n");
 					System.out.println("========================");
-					if (hp2 < 0) {
+					if (hp2 <= 0) {
 						im.show("승리");
 						win(update_pk, hp1);
 						break;
@@ -169,7 +170,8 @@ public class Battle {
 				while (true) {
 					menu1 = rd.nextInt(2) + 1;
 					if (menu1 == 1) {
-						
+						pause();
+						pause();
 						System.out.println("========================");
 						System.out.println("\n");
 						System.out.println(name2 + " 몸통 박치기");
@@ -179,7 +181,7 @@ public class Battle {
 						System.out.println(name2 + "의피 : " + hp2);
 						System.out.println("\n");
 						System.out.println("========================");
-						if (hp1 < 0) {
+						if (hp1 <= 0) {
 							im.show("패배");
 							lose(update_pk);
 							break;
@@ -192,17 +194,18 @@ public class Battle {
 							continue;
 						}
 						count2++;
-						
+						pause();
+						pause();
 						System.out.println("========================");
 						System.out.println("\n");
 						System.out.println(name2 + "의 " + skillname2);
-						System.out.println(name1 + "의피 : " + hp1);
+						System.out.print(name1 + "의피 : " + hp1);
 						hp1 -= skill22;
 						System.out.println(" -- > "+hp2);
 						System.out.println(name2 + "의피 : " + hp2);
 						System.out.println("\n");
 						System.out.println("========================");
-						if (hp1 < 0) { // 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
+						if (hp1 <= 0) { // 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
 							im.show("패배"); // 포켓몬1의 hp 0되면 패배 !!(break)
 							lose(update_pk);
 							break;
@@ -284,8 +287,16 @@ public class Battle {
 		s -= 1;
 		String name = update_pk[s].getPokemon_Nmae();
 		String skillname = update_pk[s].getPokemonSkillName();
+		String type = update_pk[s].getPokemon_type();
 		update_pk[update_pk.length - 1].setPokemon_Nmae(name);
 		update_pk[update_pk.length - 1].setPokemonSkillName(skillname);
+		update_pk[update_pk.length - 1].setPokemon_type(type);
 
+	}
+	private static void pause() {
+		try {
+			System.in.read();
+		} catch (IOException e) {
+		}
 	}
 }

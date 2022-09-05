@@ -162,12 +162,12 @@ public class story {
 	// 사냥터
 
 	public static void field() {
+		
 		Bgmplayer bgm = new Bgmplayer();
 		MP3Player mp3 = new MP3Player();
 		System.out.println("\n");
-		bgm.play("포켓몬발견");
+//		bgm.play("포켓몬발견");
 		slowPrint("야생 포켓몬이 출현합니다! 조심하세요!", 100);
-		bgm.stop();
 		System.out.println("\n");
 	}
 	// 첫번째 체육관 도전 멘트

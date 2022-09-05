@@ -27,11 +27,11 @@ public class View_User {
 		// 메인 타이틀
 		s.title();
 		// 회원가입 , 로그인
-			System.out.print("[1]회원가입  [2]로그인 >> ");
-			int menu = sc.nextInt();
-			System.out.println("\n");
-			if (menu == 1) {
-				while (true) {
+		System.out.print("[1]회원가입  [2]로그인 >> ");
+		int menu = sc.nextInt();
+		System.out.println("\n");
+		if (menu == 1) {
+			while (true) {
 				int choose;
 				s.opening();
 				System.out.println("==========등록==========");
@@ -61,10 +61,10 @@ public class View_User {
 					continue;
 				}
 				break;
-				}
-				// 로그인 기능 연결
-			}else if (menu == 2) {
-			while(true) {
+			}
+			// 로그인 기능 연결
+		} else if (menu == 2) {
+			while (true) {
 				System.out.print("ID : ");
 				String id = sc.next();
 				System.out.print("PW : ");
@@ -84,10 +84,10 @@ public class View_User {
 				}
 				break;
 			}
-			}
-		int end =0;
+		}
+		int end = 0;
 		while (true) {
-			if(end==1) {
+			if (end == 1) {
 				break;
 			}
 			System.out.print("===================== < 선택해주세요 > =====================");
@@ -101,10 +101,13 @@ public class View_User {
 				System.out.print("사냥터로 이동합니다.");
 				System.out.println("\n");
 				s.field();
+				bgm.play("포켓몬출현");
 				battle.vs(first_pokemon);
+				bgm.stop();
 //			 야생 포켓몬 출현
 			} else if (move == 2) {
-				while (true) {System.out.println("\n");
+				while (true) {
+					System.out.println("\n");
 					System.out.print("체육관에 도전하시겠습니까? (Y/N)");
 					System.out.print("\n");
 					System.out.print("입력주세요 : ");
@@ -116,9 +119,10 @@ public class View_User {
 							s.gym1();
 							battle.vs(first_pokemon);
 							s.gym1end();
-						}else if(first_pokemon[first_pokemon.length - 1].getLevel() < 5) {
-							System.out.println("레벨 조건이 충족되지 않았습니다.");
 							if (first_pokemon[first_pokemon.length - 1].getHp() > 0) {
+								System.out.println("\n");
+								s.gym1end();
+								battle.endheal(first_pokemon);
 								System.out.println("\n");
 								s.roketdan();
 								battle.vs(first_pokemon);
@@ -129,6 +133,9 @@ public class View_User {
 								}
 								break;
 							}
+						} else if (first_pokemon[first_pokemon.length - 1].getLevel() < 5) {
+							System.out.println("레벨 조건이 충족되지 않았습니다.");
+
 						}
 
 					} else if (yn.equals("n")) {
