@@ -121,13 +121,15 @@ public class Battle {
 				System.out.print("입력해주세요 : ");
 				int menu1 = sc.nextInt();
 				if (menu1 == 1) {
-					hp2 -= skill11;
+					
 					bgm.play("타격");
 					System.out.println("========================");
 					System.out.println("\n");
 					System.out.println(name1 + "몸통 박치기 !!!!");
 					System.out.println(name1 + "의피 : " + hp1);
-					System.out.println(name2 + "의피 : " + hp2);
+					System.out.print(name2 + "의피 : " + hp2);
+					hp2 -= skill11;
+					System.out.println(" -- > "+hp2);
 					System.out.println("\n");
 					System.out.println("========================");
 					if (hp2 < 0) {
@@ -142,13 +144,15 @@ public class Battle {
 						System.out.println("스킬을 사용할수 없습니다");
 						continue;
 					}
-					hp2 -= skill12;
+					
 					bgm.play("타격");
 					System.out.println("========================");
 					System.out.println("\n");
 					System.out.println(name1 + "!!  " + skillname1 + "!!");
 					System.out.println(name1 + "의피 : " + hp1);
-					System.out.println(name2 + "의피 : " + hp2);
+					System.out.print(name2 + "의피 : " + hp2);
+					hp2 -= skill12;
+					System.out.println(" -- > "+hp2);
 					System.out.println("\n");
 					System.out.println("========================");
 					if (hp2 < 0) {
@@ -165,11 +169,13 @@ public class Battle {
 				while (true) {
 					menu1 = rd.nextInt(2) + 1;
 					if (menu1 == 1) {
-						hp1 -= skill21;
+						
 						System.out.println("========================");
 						System.out.println("\n");
 						System.out.println(name2 + " 몸통 박치기");
-						System.out.println(name1 + "의피 : " + hp1);
+						System.out.print(name1 + "의피 : " + hp1);
+						hp1 -= skill21;
+						System.out.println(" -- > "+hp1);
 						System.out.println(name2 + "의피 : " + hp2);
 						System.out.println("\n");
 						System.out.println("========================");
@@ -186,11 +192,13 @@ public class Battle {
 							continue;
 						}
 						count2++;
-						hp1 -= skill22;
+						
 						System.out.println("========================");
 						System.out.println("\n");
 						System.out.println(name2 + "의 " + skillname2);
 						System.out.println(name1 + "의피 : " + hp1);
+						hp1 -= skill22;
+						System.out.println(" -- > "+hp2);
 						System.out.println(name2 + "의피 : " + hp2);
 						System.out.println("\n");
 						System.out.println("========================");
@@ -224,7 +232,8 @@ public class Battle {
 		if (exp >=1) {
 			update_pk[update_pk.length - 1].setLevel(level + 1);
 			update_pk[update_pk.length - 1].setExp(0);
-			System.out.println("축하 합니다 !!  " + level + 1 + "달성 !!");
+			int lev = update_pk[update_pk.length - 1].getLevel();
+			System.out.println("축하 합니다 !!  " + lev + "달성 !!");
 		}
 		update_pk[update_pk.length - 1].setHp(hp);
 	}
