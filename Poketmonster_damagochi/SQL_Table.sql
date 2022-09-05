@@ -32,7 +32,7 @@ exp number(10) default 0,
 constraint Poke_id_fk foreign key (id) references join(id));
 
 
-
+drop table join
 drop table poke;
 select * from poke;
 select * from join;

@@ -158,7 +158,7 @@ public class Controller_DAO {
 		update_pk = pokemon;
 		try {
 			getCon();
-			String sql = "select nick, skill_name, level_, max_hp, hp, exp from poke where = ?";
+			String sql = "select nick, skill_name, level_,types, max_hp, hp, exp from poke where = ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, user_id);
 			// sql문에 나온 결과물 rs에 담기
@@ -167,6 +167,7 @@ public class Controller_DAO {
 			String pokemon_name = null;
 			String skill_name = null;
 			int level = 0;
+			String type=null;
 			int max_hp = 0;
 			int hp = 0;
 			int exp = 0;
@@ -175,22 +176,22 @@ public class Controller_DAO {
 				pokemon_name = rs.getString(1);
 				skill_name = rs.getString(2);
 				level = rs.getInt(3);
-				max_hp = rs.getInt(4);
-				hp = rs.getInt(5);
-				exp = rs.getInt(6);
+				type = rs.getString(4);
+				max_hp = rs.getInt(5);
+				hp = rs.getInt(6);
+				exp = rs.getInt(7);
 			}
 			// 로그인 시 해당 유저 포켓몬 정보 불러오기
 			update_pk[update_pk.length - 1].setPokemon_Nmae(pokemon_name);
 			update_pk[update_pk.length - 1].setPokemonSkillName(skill_name);
-			;
 			update_pk[update_pk.length - 1].setLevel(level);
+			update_pk[update_pk.length - 1].setPokemon_type(type);
 			update_pk[update_pk.length - 1].setMax_hp(max_hp);
 			update_pk[update_pk.length - 1].setHp(hp);
 			update_pk[update_pk.length - 1].setExp(exp);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("로그인 실패");
 		}
 
 	}

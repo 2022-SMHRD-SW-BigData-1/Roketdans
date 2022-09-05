@@ -138,7 +138,7 @@ public class Battle {
 					// 포켓몬2 의 hp - ( 포켓몬 1 임시 스킬데미지 )
 					// 포켓몬 2의 hp 0되면 승리 !! (break)
 				} else if (menu1 == 2) {
-					if (count1 > 1) {
+					if (count1 >= 1) {
 						System.out.println("스킬을 사용할수 없습니다");
 						continue;
 					}
@@ -181,7 +181,7 @@ public class Battle {
 						// 포켓몬1 의 hp - ( 포켓몬 2 임시 스킬데미지 )
 						// 포켓몬 1의 hp 0되면 패배 !!(break)
 					} else if (menu1 == 2) {
-						if (count2 > 1) {
+						if (count2 >= 1) {
 							System.out.println("스킬을 사용할수 없습니다");
 							continue;
 						}
