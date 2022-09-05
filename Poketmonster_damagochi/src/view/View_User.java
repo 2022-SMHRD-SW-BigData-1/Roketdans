@@ -26,7 +26,7 @@ public class View_User {
 		User_VO userVO = null;
 		Bgmplayer bgm = new Bgmplayer();
 		// 메인 타이틀
-		//s.title();
+		s.title();
 		// 회원가입 , 로그인
 		System.out.print("[1]회원가입  [2]로그인 >> ");
 		int menu = sc.nextInt();
@@ -52,6 +52,7 @@ public class View_User {
 					choose = s.choose();
 					battle.arrinsert(first_pokemon, choose);
 					dao.joininsert(first_pokemon, choose, id);
+					break;
 				} else {
 					System.out.println("\n");
 					System.out.println("등록 실패");

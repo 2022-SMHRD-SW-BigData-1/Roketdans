@@ -106,9 +106,11 @@ public class story {
 		Scanner sc = new Scanner(System.in);
 		Bgmplayer bgm = new Bgmplayer();
 		MP3Player mp3 = new MP3Player();
+		image e = new image();
 		System.out.println("=========== 포켓몬 선택 ===========");
 		System.out.println("\n");
 		int choice;
+		e.show("오박사");
 		bgm.play("타자");
 		String[] chooseText = { "오박사 : 포켓몬 마스터가 되는 첫걸음은", "파트너 포켓몬을 선택하는 것이다!", "\t", "모험을 시작하려면 함께 할 포켓몬이 있어야하지 않겠나?",
 				"내가 여기 3마리의 포켓몬을 준비했으니 골라보게!!", "\t" };
@@ -216,8 +218,10 @@ public class story {
 		Scanner sc = new Scanner(System.in);
 		Bgmplayer bgm = new Bgmplayer();
 		MP3Player mp3 = new MP3Player();
+		image e = new image();
 		bgm.play("타자");
 		System.out.println("\n");
+		e.show("오박사");
 		String[] endingText = { "오박사 : 오래간만이군!", "포켓몬 마스터가 되었다는 소문은 들었네", "정말 축하하네!!!", "힘들일은 없었나?", "\t",
 				"나 : 너무 재밌었습니다! 로켓단만 만나지 않았다면 말이죠", "\t", "오박사 : 뭐? 로켓단을 만났다고 그 악랄한 놈들", "그래도 뱃지를 뺏기지 않아서 정말 다행이군!",
 				"다음에 기회가 있으면 또 보세 잘지내게!"};
@@ -227,5 +231,4 @@ public class story {
 			}
 		System.out.println("게임 종료");
 		}
-
-}
+	}
