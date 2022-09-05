@@ -13,7 +13,7 @@ public class Pokemons {
 	// 포켓몬 스킬이름
 	String pokemonSkillName;
 	// 레벨
-	int level =1;
+	int level = 1;
 	// 고정 시작 레벨, 한계 레벨
 	final int max_level = 5; 
 	final int min_level = 1;

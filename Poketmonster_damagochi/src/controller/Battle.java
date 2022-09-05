@@ -213,7 +213,7 @@ public class Battle {
 					}
 					break; // 야생포켓몬 턴 종료
 				}
-				if (hp1 < 0) {
+				if (hp1 <= 0 || hp2 <= 0) {
 					break;
 				} //
 
@@ -233,10 +233,13 @@ public class Battle {
 		update_pk[update_pk.length - 1].setExp(exp + 1);
 		exp = update_pk[update_pk.length - 1].getExp();
 		if (exp >=1) {
-			update_pk[update_pk.length - 1].setLevel(level + 1);
+			if(level<5) {
+			level ++;
+			update_pk[update_pk.length - 1].setLevel(level );
+			update_pk[update_pk.length - 1].setMax_hp((level)*10+(rd.nextInt(3)+1));
 			update_pk[update_pk.length - 1].setExp(0);
 			int lev = update_pk[update_pk.length - 1].getLevel();
-			System.out.println("축하 합니다 !!  " + lev + "달성 !!");
+			System.out.println("축하 합니다 !!  " + lev + "달성 !!");}
 		}
 		update_pk[update_pk.length - 1].setHp(hp);
 	}

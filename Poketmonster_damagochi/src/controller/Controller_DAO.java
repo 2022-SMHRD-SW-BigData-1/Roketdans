@@ -65,7 +65,7 @@ public class Controller_DAO {
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("회원가입 실패");
 		} finally {
 			close();
 		}
