@@ -86,6 +86,7 @@ public class View_User {
 		int end = 0;
 		while (true) {
 			bgm.stop();
+			battle.bgmstop();
 			if (end == 1) {
 				break;
 			}
@@ -152,7 +153,6 @@ public class View_User {
 				battle.heal(first_pokemon);
 			} else if (move == 5) { // 진화
 				int level = first_pokemon[first_pokemon.length - 1].getLevel();
-				bgm.play("진화");
 				if (level >= 5) {
 					bgm.play("진화");
 					poke_up(first_pokemon, im);
@@ -183,9 +183,10 @@ public class View_User {
 
 	private static void poke_up(Pokemons[] first_pokemon, image im) {
 		String pk_name = first_pokemon[first_pokemon.length - 1].getPokemon_Nmae();
+		String name2=null;
 		for (int i = 0; i < first_pokemon.length - 1; i++) {
-			if (pk_name == first_pokemon[i].getPokemon_Nmae()) {
-				String name2 = first_pokemon[i + 12].getPokemon_Nmae();
+			if (first_pokemon[i].getPokemon_Nmae().equals(pk_name)) {
+				name2 = first_pokemon[i + 12].getPokemon_Nmae();
 				String skill2 = first_pokemon[i + 12].getPokemonSkillName();
 				first_pokemon[first_pokemon.length - 1].setPokemon_Nmae(name2);
 				first_pokemon[first_pokemon.length - 1].setPokemonSkillName(skill2);
@@ -194,7 +195,8 @@ public class View_User {
 		System.out.println(pk_name + " : 으앗! 몸이 이상..해....");
 		pause();
 		pause();
-		im.show(pk_name);
+		System.out.println("\n");
+		im.show(name2);
 		System.out.println(first_pokemon[first_pokemon.length - 1].getPokemon_Nmae()+"!!!!!");
 	}
 	

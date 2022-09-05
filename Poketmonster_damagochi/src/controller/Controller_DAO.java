@@ -143,11 +143,7 @@ public class Controller_DAO {
 			psmt.setInt(8, update_pk[choose].getExp());
 
 			int row = psmt.executeUpdate();
-			if (row > 0) {
-				System.out.println("삽입성공");
-			} else {
-				System.out.println("삽입실패");
-			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

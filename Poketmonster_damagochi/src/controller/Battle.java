@@ -51,8 +51,8 @@ public class Battle {
 			int temp = update_pk[update_pk.length - 1].getLevel();
 			update_pk[ran].setLevel(rd.nextInt(3) + temp - 1);       // 야생포켓몬 스텟 설정 
 			int level23=update_pk[ran].getLevel();
-			update_pk[ran].setMax_hp(level23*10+(rd.nextInt(3)+1));
-			update_pk[ran].setBasic_attack(level23+2);
+			update_pk[ran].setMax_hp(level23*8+(rd.nextInt(3)+1));
+			update_pk[ran].setBasic_attack(level23+1);
 			update_pk[ran].setSkill_attack(level23*2);
 			
 			
@@ -235,6 +235,8 @@ public class Battle {
 
 	public void win(Pokemons[] pokemon, int hp) {
 		update_pk = pokemon;
+		Bgmplayer bgm = new Bgmplayer();
+		bgm.play("레벨업");
 		int exp = update_pk[update_pk.length - 1].getExp();
 		int level = update_pk[update_pk.length - 1].getLevel();
 		update_pk[update_pk.length - 1].setExp(exp + 1);
@@ -303,7 +305,12 @@ public class Battle {
 		update_pk[update_pk.length - 1].setPokemon_Nmae(name);
 		update_pk[update_pk.length - 1].setPokemonSkillName(skillname);
 		update_pk[update_pk.length - 1].setPokemon_type(type);
-
+	
+	}
+	
+	public void bgmstop() {
+		Bgmplayer bgm = new Bgmplayer();
+		bgm.stop();
 	}
 	private static void pause() {
 		try {
