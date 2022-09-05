@@ -26,7 +26,7 @@ public class View_User {
 		User_VO userVO = null;
 		Bgmplayer bgm = new Bgmplayer();
 		// 메인 타이틀
-		s.title();
+		//s.title();
 		// 회원가입 , 로그인
 		System.out.print("[1]회원가입  [2]로그인 >> ");
 		int menu = sc.nextInt();
@@ -34,7 +34,7 @@ public class View_User {
 		if (menu == 1) {
 			while (true) {
 				int choose;
-				s.opening();
+				//s.opening();
 				System.out.println("==========등록==========");
 				System.out.println("\n");
 				System.out.print("ID : ");
@@ -49,19 +49,15 @@ public class View_User {
 					System.out.println("등록 성공");
 					System.out.println("\n");
 					userVO = new User_VO(id, pw, nick);
-//				포켓몬 선택 스토리
 					choose = s.choose();
 					battle.arrinsert(first_pokemon, choose);
 					dao.joininsert(first_pokemon, choose, id);
-					// 선택한 포켓몬 번호를 포켓몬 배열 마지막에 저장
-					//
 				} else {
 					System.out.println("\n");
 					System.out.println("등록 실패");
 					System.out.println("\n");
 					continue;
 				}
-				break;
 			}
 			// 로그인 기능 연결
 		} else if (menu == 2) {
@@ -106,7 +102,6 @@ public class View_User {
 				bgm.play("포켓몬발견");
 				battle.vs(first_pokemon);
 				bgm.stop();
-//			 야생 포켓몬 출현
 			} else if (move == 2) {
 				while (true) {
 					System.out.println("\n");
@@ -115,21 +110,16 @@ public class View_User {
 					System.out.print("입력주세요 : ");
 					String yn = sc.next();
 					if (yn.equals("y")) {
-						System.out.println("\n");
 						if (first_pokemon[first_pokemon.length - 1].getLevel() >= 5) {
-							System.out.println("\n");
 							s.gym1();
 							battle.vs(first_pokemon);
 							s.gym1end();
 							if (first_pokemon[first_pokemon.length - 1].getHp() > 0) {
 								System.out.println("\n");
-								s.gym1end();
 								battle.endheal(first_pokemon);
-								System.out.println("\n");
 								s.roketdan();
 								battle.vs(first_pokemon);
 								if (first_pokemon[first_pokemon.length - 1].getHp() > 0) {
-									System.out.println("\n");
 									s.ending();
 									end++;
 								}
@@ -137,7 +127,7 @@ public class View_User {
 							}
 						} else if (first_pokemon[first_pokemon.length - 1].getLevel() < 5) {
 							System.out.println("레벨 조건이 충족되지 않았습니다.");
-
+							break;
 						}
 
 					} else if (yn.equals("n")) {
@@ -166,6 +156,7 @@ public class View_User {
 					bgm.play("진화");
 					poke_up(first_pokemon, im);
 					bgm.stop();
+					
 
 				} else {
 					System.out.println("레벨 조건이 충족되지 않았습니다.");
@@ -177,7 +168,6 @@ public class View_User {
 				System.out.println("\n");
 				dao.save(first_pokemon, userVO.getId());
 			} else if (move == 7) {
-//			매개값으로 유저 id를 받아 포켓몬 정보 확인하기
 				dao.save(first_pokemon, userVO.getId()); // 해당 유저의 아이디를 받아 아이디로 찾아 유저 포켓몬 정보 최신화
 				System.out.println("\n");
 				System.out.print("게임을 종료합니다.");
