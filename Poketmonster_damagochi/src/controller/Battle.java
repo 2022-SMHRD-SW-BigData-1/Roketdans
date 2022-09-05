@@ -133,6 +133,7 @@ public class Battle {
 					System.out.println(" -- > "+hp2);
 					System.out.println("\n");
 					System.out.println("========================");
+					bgm.stop();
 					if (hp2 <= 0) {
 						im.show("승리");
 						win(update_pk, hp1);
@@ -156,6 +157,7 @@ public class Battle {
 					System.out.println(" -- > "+hp2);
 					System.out.println("\n");
 					System.out.println("========================");
+					bgm.stop();
 					if (hp2 <= 0) {
 						im.show("승리");
 						win(update_pk, hp1);
