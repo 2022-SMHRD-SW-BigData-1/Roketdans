@@ -238,7 +238,9 @@ public class Battle {
 			if(level<5) {
 			level ++;
 			update_pk[update_pk.length - 1].setLevel(level );
-			update_pk[update_pk.length - 1].setMax_hp((level)*10+(rd.nextInt(3)+1));
+			update_pk[update_pk.length - 1].setMax_hp((level)*12+(rd.nextInt(3)+1));
+			update_pk[update_pk.length - 1].setBasic_attack(level+3);
+			update_pk[update_pk.length - 1].setSkill_attack(level*2);
 			update_pk[update_pk.length - 1].setExp(0);
 			int lev = update_pk[update_pk.length - 1].getLevel();
 			System.out.println("축하 합니다 !!  " + lev + "달성 !!");}
