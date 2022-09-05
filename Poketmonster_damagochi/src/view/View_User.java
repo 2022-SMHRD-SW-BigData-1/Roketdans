@@ -27,11 +27,11 @@ public class View_User {
 		// 메인 타이틀
 		s.title();
 		// 회원가입 , 로그인
-		while (true) {
 			System.out.print("[1]회원가입  [2]로그인 >> ");
 			int menu = sc.nextInt();
 			System.out.println("\n");
 			if (menu == 1) {
+				while (true) {
 				int choose;
 				s.opening();
 				System.out.println("==========등록==========");
@@ -58,10 +58,13 @@ public class View_User {
 					System.out.println("\n");
 					System.out.println("등록 실패");
 					System.out.println("\n");
+					continue;
 				}
 				break;
-			} else if (menu == 2) {
+				}
 				// 로그인 기능 연결
+			}else if (menu == 2) {
+			while(true) {
 				System.out.print("ID : ");
 				String id = sc.next();
 				System.out.print("PW : ");
@@ -76,10 +79,12 @@ public class View_User {
 				} else {
 					System.out.println("\n");
 					System.out.println("로그인 실패");
+					System.out.println("\n");
+					continue;
 				}
+				break;
 			}
-			break;
-		}
+			}
 		int end =0;
 		while (true) {
 			if(end==1) {
@@ -100,13 +105,14 @@ public class View_User {
 //			 야생 포켓몬 출현
 			} else if (move == 2) {
 				while (true) {System.out.println("\n");
-					System.out.print("체육관에 도전하시겠습니까?");
+					System.out.print("체육관에 도전하시겠습니까? (Y/N)");
+					System.out.print("\n");
 					System.out.print("입력주세요 : ");
-					System.out.println("\n");
 					String yn = sc.next();
 					if (yn.equals("y")) {
 						System.out.println("\n");
 						if (first_pokemon[first_pokemon.length - 1].getLevel() >= 5) {
+							System.out.println("레벨 조건이 충족되지 않았습니다.");
 							System.out.println("\n");
 							s.gym1();
 							battle.vs(first_pokemon);
@@ -129,6 +135,7 @@ public class View_User {
 					} else {
 						System.out.println("\n");
 						System.out.print("잘못 입력하셨습니다.");
+						continue;
 					}
 				}
 			} else if (move == 3) {
