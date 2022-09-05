@@ -163,8 +163,9 @@ public class View_User {
 				int level = first_pokemon[first_pokemon.length - 1].getLevel();
 				bgm.play("진화");
 				if (level >= 5) {
+					bgm.play("진화");
 					poke_up(first_pokemon, im);
-					
+					bgm.stop();
 
 				} else {
 					System.out.println("레벨 조건이 충족되지 않았습니다.");

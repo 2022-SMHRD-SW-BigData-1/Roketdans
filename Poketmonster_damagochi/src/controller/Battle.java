@@ -49,19 +49,24 @@ public class Battle {
 				}
 			}
 			int temp = update_pk[update_pk.length - 1].getLevel();
-			update_pk[ran].setLevel(rd.nextInt(3) + temp - 1);
+			update_pk[ran].setLevel(rd.nextInt(3) + temp - 1);       // 야생포켓몬 스텟 설정 
+			int level23=update_pk[ran].getLevel();
+			update_pk[ran].setMax_hp(level23*10+(rd.nextInt(3)+1));
+			update_pk[ran].setBasic_attack(level23+2);
+			update_pk[ran].setSkill_attack(level23*2);
+			
+			
 			String name2 = update_pk[ran].getPokemon_Nmae(); // 야생 포켓몬
 			int skill21 = update_pk[ran].getBasic_attack(); // 야생 포켓몬 기본데미지
 			int skill22 = update_pk[ran].getSkill_attack(); // 야생 포켓몬 스킬데미지
-			int level2 = update_pk[ran].getMax_level(); // 야생 포켓몬 레벨
 			String skillname2 = update_pk[ran].getPokemonSkillName();
-			int hp2 = update_pk[ran].getHp();
-
+			int hp2 = update_pk[ran].getMax_hp();
+			
 			im.show("vs");
 			im.show(name2);
 			System.out.println();
 			System.out.println();
-			System.out.println(name2 + "의 LEVEL : " + level2);
+			System.out.println(name2 + "의 LEVEL : " + level23);
 			String temptype1 = update_pk[update_pk.length - 1].getPokemon_type();
 			String temptype2 = update_pk[ran].getPokemon_type();
 			if (temptype1.equals("물")) {
